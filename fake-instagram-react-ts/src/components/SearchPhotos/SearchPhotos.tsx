@@ -7,7 +7,9 @@ interface SearchPhotosProps {
 
 const SearchPhotos: FunctionComponent<SearchPhotosProps> = () => {
     return (
-        <div></div>
+        <div>
+
+        </div>
     );
 }
 
