@@ -10,9 +10,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
     return (
         <header className="Header">
             <Logo />
-            <Menu>
-
-            </Menu>
+            <Menu />
         </header>
     );
 }

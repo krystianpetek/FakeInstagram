@@ -5,9 +5,10 @@ interface FooterProps {
 }
 
 const Footer: FunctionComponent<FooterProps> = () => {
-    return (<footer>
+    return (
+        <footer className="Footer">
 
-    </footer>);
+        </footer>);
 }
 
 export default Footer;

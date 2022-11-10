@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import react, { BrowserRouter, Route, Routes } from "react-router-dom"
+import React, {  Route, Routes } from "react-router-dom"
 import "./Logo.scss";
 interface LogoProps {
 
