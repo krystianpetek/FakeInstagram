@@ -1,7 +1,12 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0-modified | 20110126
-   License: none (public domain)
-*/
+// My Reset CSS - Krystian Petek
+a {
+  text-decoration: none;
+  outline: 0px;
+}
+
+
+// FROM GITHUB
+// https://gist.github.com/DavidWells/18e73022e723037a50d6
 
 html,
 body,

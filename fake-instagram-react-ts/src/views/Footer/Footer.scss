@@ -1,0 +1,7 @@
+@use "./../../variables.scss" as variables;
+
+.Footer {
+    @include variables.PositionToAllBaseView;
+    justify-content: center;
+    height: 50px;
+}

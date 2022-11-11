@@ -1,10 +1,21 @@
-$prim: #FFF2;
+@use "../../variables.scss" as variables;
+;
 
 .Layout {
+    // margin: 20px auto;
+    // min-height: calc(100vh - 40px);
+
     margin: 0 auto;
-    width: 1200px;
     height: auto;
     min-height: 100vh;
-    background-color: $prim;
-    color: #fff;
+    width: variables.$contentWidth;
+    color: variables.$primaryTextColor;
+    background-color: variables.$containerColor;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0px 40px;
 }

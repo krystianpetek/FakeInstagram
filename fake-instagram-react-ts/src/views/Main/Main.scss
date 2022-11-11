@@ -1,0 +1,5 @@
+@use "./../../variables.scss" as variables;
+
+.Main {
+    @include variables.PositionToAllBaseView;
+}

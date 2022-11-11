@@ -1,6 +1,6 @@
+@use "./../../variables.scss" as variables;
+
 .Header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
+    @include variables.PositionToAllBaseView;
+    height: 50px;
 }
