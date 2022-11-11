@@ -1,5 +1,29 @@
 $mainContainerColor: linear-gradient(45deg,
-        #140939FF 0%,
-        #140939FF 30%,
-        #281558FF 60%,
-        #702c77FF 100%)
+                #140939FF 0%,
+                #140939FF 30%,
+                #281558FF 60%,
+                #702c77FF 100%);
+
+$contentWidth: 1160px;
+$containerColor: #FFF1;
+$primaryTextColor: #FFFF;
+
+
+@mixin HideScroll {
+        // hidden scroll
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+                display: none;
+        }
+}
+
+@mixin PositionToAllBaseView {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0px;
+}
