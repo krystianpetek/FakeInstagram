@@ -1,10 +1,13 @@
+import axios from "axios";
 import { useState, FunctionComponent, useEffect } from "react";
+import { Navigate, Route } from "react-router-dom";
+import Post from "../../components/Post/Post";
 import "./Posts.scss";
 interface PostListProps {
 
 }
 
-interface PostsResponse {
+export interface PostsResponse {
     body: string,
     id: number,
     title: string,
@@ -14,28 +17,32 @@ interface PostsResponse {
 const APIURL = "https://jsonplaceholder.typicode.com";
 
 const PostList: FunctionComponent<PostListProps> = () => {
-    const getPosts = () => fetch(`${APIURL}/posts`)
-        .then(response => {
-            if (response.status === 200)
-                return response.json();
-            throw new Error("ERROR");
+
+    const getPosts = () => axios.get(`${APIURL}/posts`)
+        .then<PostsResponse[]>(response => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            throw new Error("While fetching posts something went wrong!");
         })
         .then(response => setPosts(response))
-        .catch();
+        .catch(error => {
+            console.log(error);
+            window.location.href = '/errorPage';
+        }
+        );
 
     const [Posts, setPosts] = useState<Partial<PostsResponse[]>>();
 
     useEffect(
         () => {
-            getPosts()
-        }
-        , [])
+            getPosts();
+        }, [])
 
     return (
         <div className="PostList">
-            <button onClick={getPosts}>Button</button>
             <div>
-                {Posts?.map(x => <div key={x?.id}>id: {x?.id} | userId: {x?.userId}</div>)}
+                {Posts?.map(x => <Post key={x?.id} post={x!}></Post>)}
             </div>
         </div>
     );
