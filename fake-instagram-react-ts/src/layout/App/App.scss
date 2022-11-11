@@ -3,12 +3,10 @@
 .App {
   font-family: Arial, sans-serif;
   background: variables.$mainContainerColor;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   height: 100vh;
-  overflow-y: scroll;
+
+  @include variables.HideScroll;
+
   // /* // Small devices (landscape phones, 576px and up)
   // @media (min-width: 576px) { ... }
   // // Medium devices (tablets, 768px and up)

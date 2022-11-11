@@ -1,9 +1,11 @@
 import "./Main.scss"
 import React, { FunctionComponent } from "react";
-import PostList from "../../components/Posts/PostList";
 import { Route, Routes } from "react-router-dom";
-import SearchUsers from "../../components/SearchUsers/SearchUsers";
-import SearchPhotos from "../../components/SearchPhotos/SearchPhotos";
+import Posts from "../../pages/Posts/Posts";
+import Search from "../../pages/Search/Search";
+import Home from "../../pages/Home/Home";
+import MyProfile from "../../pages/MyProfile/MyProfile";
+import Login from "../../pages/Login/Login";
 interface MainProps {
 
 }
@@ -12,11 +14,11 @@ const Main: FunctionComponent<MainProps> = () => {
     return (
         <main className="Main">
             <Routes>
-                <Route path="/"></Route>
-                <Route path="/posts" element={<PostList />}></Route>
-                <Route path="/login" element={"LOGIN (string)"}></Route>
-                <Route path="/searchUsers" element={<SearchUsers />}></Route>
-                <Route path="/searchPhotos" element={<SearchPhotos />}></Route>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/posts" element={<Posts />}></Route>
+                <Route path="/search" element={<Search />}></Route>
+                <Route path="/myProfile" element={<MyProfile />}></Route>
+                <Route path="/login" element={<Login />}></Route>
             </Routes>
 
         </main>);

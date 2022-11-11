@@ -7,7 +7,7 @@ interface MenuItemProps {
 
 const MenuItem: FunctionComponent<MenuItemProps> = (props) => {
     return (
-        <div>
+        <div className="MenuItem">
             <p>{props.content}</p>
         </div>
     );

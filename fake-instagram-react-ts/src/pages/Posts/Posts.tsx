@@ -1,5 +1,5 @@
-import { useState, FunctionComponent } from "react";
-import "./PostList.scss";
+import { useState, FunctionComponent, useEffect } from "react";
+import "./Posts.scss";
 interface PostListProps {
 
 }
@@ -24,6 +24,12 @@ const PostList: FunctionComponent<PostListProps> = () => {
         .catch();
 
     const [Posts, setPosts] = useState<Partial<PostsResponse[]>>();
+
+    useEffect(
+        () => {
+            getPosts()
+        }
+        , [])
 
     return (
         <div className="PostList">

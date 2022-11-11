@@ -1,13 +1,11 @@
+@use "./../../variables.scss" as variables;
+
 .Menu {
     display: flex;
     border: 0px;
 
-    p {
-        padding: 10px;
-    }
-
     a {
-        color: white;
+        color: variables.$primaryTextColor;
         text-decoration: none;
         outline: 0px;
     }
