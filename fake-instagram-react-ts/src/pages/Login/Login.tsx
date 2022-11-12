@@ -1,4 +1,5 @@
 import React, { FormEvent, FunctionComponent, useState } from "react";
+import Input from "../../components/Input/Input";
 import "./Login.scss";
 interface LoginProps {
 
@@ -15,25 +16,23 @@ const Login: FunctionComponent<LoginProps> = () => {
     return (
         <div className="Login">
 
-            <form className="Login__Form" onSubmit={handleLogin}>
-                <label htmlFor="username">Username</label>
-                <input
-                    className="Login__UsernameInput"
-                    id="username"
+            <form className="Login__Form" onSubmit={handleLogin} noValidate>
+                <Input
+                    key="Login__UsernameInput"
                     name="username"
                     value={Login}
-                    onChange={event => setLogin(event.currentTarget.value)}
+                    handleChange={event => setLogin(event.currentTarget?.value)}
                     type="text"
-                ></input>
-                <label htmlFor="password">Password</label>
-                <input
-                    className="Login__PasswordInput"
-                    id="password"
+                    placeholder="Please enter your username!"
+
+                />
+                <Input key="Login__PasswordInput"
                     name="password"
                     value={Password}
-                    onChange={event => setPassword(event.currentTarget.value)}
+                    handleChange={event => setPassword(event.currentTarget.value)}
                     type="password"
-                ></input>
+                    placeholder="Please enter your password!"
+                />
                 <div className="Login__FormSubmitButton">
                     <button type="submit">Login</button>
                 </div>
