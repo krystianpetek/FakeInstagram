@@ -1,9 +1,10 @@
+@use "./../../variables.scss" as variables;
+
 .Login {
     width: 450px;
     height: 400px;
     border-radius: 10px;
     border: 2px solid #ffF4;
-
 
     &__Form {
         display: flex;

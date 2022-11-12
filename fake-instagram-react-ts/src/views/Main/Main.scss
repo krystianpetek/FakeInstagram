@@ -3,4 +3,5 @@
 .Main {
     @include variables.PositionToAllBaseView;
     justify-content: center;
+    flex-grow: 1;
 }

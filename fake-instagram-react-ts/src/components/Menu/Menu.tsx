@@ -8,7 +8,6 @@ interface MenuProps {
 
 const Menu: FunctionComponent<MenuProps> = () => {
     return (
-
         <nav className="Menu">
             <NavLink to={"/"}>
                 <MenuItem content={"Home"} />

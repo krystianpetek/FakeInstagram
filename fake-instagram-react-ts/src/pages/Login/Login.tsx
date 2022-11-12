@@ -15,7 +15,6 @@ const Login: FunctionComponent<LoginProps> = () => {
 
     return (
         <div className="Login">
-
             <form className="Login__Form" onSubmit={handleLogin} noValidate>
                 <Input
                     key="Login__UsernameInput"
@@ -37,8 +36,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                     <button type="submit">Login</button>
                 </div>
             </form>
-
-        </div >
+        </div>
     );
 }
 

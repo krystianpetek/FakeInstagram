@@ -4,9 +4,9 @@ $mainContainerColor: linear-gradient(45deg,
                 #281558FF 60%,
                 #702c77FF 100%);
 
-$postBackground: linear-gradient(45deg,
-                #1f1f1f60 0%,
-                #33333360 100%);
+$postBackground: linear-gradient(0deg,
+                #1f1f1f80 0%,
+                #33333380 100%);
 
 $containerColor: #FFF1;
 $primaryTextColor: #FFFF;
@@ -31,4 +31,12 @@ $contentWidth: 1160px;
         align-items: center;
         padding: 10px 0px;
         flex-wrap: wrap;
+}
+
+@mixin TitleHeader {
+        font-size: 4em;
+        font-weight: 700;
+        font-style: normal;
+        text-align: center;
+        padding: 50px;
 }
