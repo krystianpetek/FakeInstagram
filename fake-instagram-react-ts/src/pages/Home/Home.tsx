@@ -6,7 +6,7 @@ interface HomeProps {
 
 const Home: FunctionComponent<HomeProps> = () => {
     return (
-        <div>
+        <div className="Home">
             Home
         </div>
     );

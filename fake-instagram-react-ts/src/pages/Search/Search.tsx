@@ -5,9 +5,11 @@ interface SearchProps {
 }
 
 const Search: FunctionComponent<SearchProps> = () => {
-    return (<div>
-        Search
-    </div>);
+    return (
+        <div className="Search">
+            Search
+        </div>
+    );
 }
 
 export default Search;

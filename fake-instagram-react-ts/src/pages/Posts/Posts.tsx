@@ -40,7 +40,7 @@ const PostList: FunctionComponent<PostListProps> = () => {
         }, [])
 
     return (
-        <div className="PostList">
+        <div className="Posts">
             <div>
                 {Posts?.map(x => <Post key={x?.id} post={x!}></Post>)}
             </div>

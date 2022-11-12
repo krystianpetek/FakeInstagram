@@ -8,7 +8,7 @@ interface PostProps {
 
 const Post: FunctionComponent<PostProps> = (props) => {
     return (
-        <div>
+        <div className="Post">
             id: {props.post?.id} | userId: {props.post?.userId}
         </div>
     );

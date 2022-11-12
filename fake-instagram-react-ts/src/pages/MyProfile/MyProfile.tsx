@@ -6,7 +6,7 @@ interface MyProfileProps {
 
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
     return (
-        <div>
+        <div className="MyProfile">
             MyProfile
         </div>
     );

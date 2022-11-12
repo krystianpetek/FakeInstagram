@@ -7,7 +7,7 @@ interface SearchUsersProps {
 
 const SearchUsers: FunctionComponent<SearchUsersProps> = () => {
     return (
-        <div>
+        <div className="SearchUsers">
 
         </div>
     );
