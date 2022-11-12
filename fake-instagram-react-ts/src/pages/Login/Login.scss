@@ -5,6 +5,7 @@
     height: 400px;
     border-radius: 10px;
     border: 2px solid #ffF4;
+    background-image: variables.$postBackground;
 
     &__Form {
         display: flex;

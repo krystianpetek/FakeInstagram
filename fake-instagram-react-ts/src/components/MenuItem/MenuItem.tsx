@@ -9,6 +9,7 @@ const MenuItem: FunctionComponent<MenuItemProps> = (props) => {
     return (
         <div className="MenuItem">
             <p>{props.content}</p>
+            <div className="MenuItem__Bottom"></div>
         </div>
     );
 }

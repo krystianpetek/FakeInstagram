@@ -1,4 +1,19 @@
+@use "./../../variables.scss" as variables;
+
 .MenuItem {
     font-size: 1.2em;
     padding: 10px 20px;
+
+    &__Bottom {
+        height: 6px;
+        margin: 6px;
+        background-image: variables.$textGradient2;
+        border-radius: 1em;
+        width: auto;
+        visibility: hidden;
+    }
+
+    .MenuItem:hover>&__Bottom {
+        visibility: visible;
+    }
 }
