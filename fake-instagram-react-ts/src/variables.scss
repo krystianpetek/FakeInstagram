@@ -4,10 +4,14 @@ $mainContainerColor: linear-gradient(45deg,
                 #281558FF 60%,
                 #702c77FF 100%);
 
-$contentWidth: 1160px;
+$postBackground: linear-gradient(45deg,
+                #1f1f1f60 0%,
+                #33333360 100%);
+
 $containerColor: #FFF1;
 $primaryTextColor: #FFFF;
 
+$contentWidth: 1160px;
 
 @mixin HideScroll {
         // hidden scroll
@@ -26,4 +30,5 @@ $primaryTextColor: #FFFF;
         justify-content: space-between;
         align-items: center;
         padding: 10px 0px;
+        flex-wrap: wrap;
 }

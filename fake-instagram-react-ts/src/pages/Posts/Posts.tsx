@@ -41,10 +41,8 @@ const PostList: FunctionComponent<PostListProps> = () => {
 
     return (
         <div className="Posts">
-            <div>
-                {Posts?.map(x => <Post key={x?.id} post={x!}></Post>)}
-            </div>
-        </div>
+            {Posts?.map(x => <Post key={x?.id} post={x!}></Post>)}
+        </div >
     );
 }
 

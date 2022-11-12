@@ -1,0 +1,6 @@
+@use "./../../variables.scss" as variables;
+
+.Posts {
+    @include variables.PositionToAllBaseView;
+    justify-content: center;
+}

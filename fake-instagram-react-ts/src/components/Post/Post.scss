@@ -1,4 +1,12 @@
+@use "./../../variables.scss" as variables;
+/* Create random color for brands */
+/* http://geoffgraham.me/randomize-sass */
+
+
 .Post {
-    --color-neutrals-additionals-grey-12: #1f1f1fff;
-    --color-neutrals-additionals-grey-20: #333333ff;
+    background: variables.$postBackground;
+    width: 250px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 20px;
 }
