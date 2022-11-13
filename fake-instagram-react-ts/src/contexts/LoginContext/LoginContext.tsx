@@ -1,37 +1,20 @@
 import { createContext } from "react";
-
-interface LoginInfo {
-    userName: string,
-    email: string
-}
-
-interface ILoginContext {
-    userName?: string,
-    email?: string,
+export interface ILoginContext {
+    userName: string;
+    setUserName: (userName: string) => void;
+    email: string;
+    setEmail: (email: string) => void;
     isUserLogged: boolean;
-    loginUser: (loginInformation: LoginInfo) => void;
-    logoutUser: () => void;
+    setIsUserLogged: (isLogged: boolean) => void;
 }
 
-const defaultState: ILoginContext = {
-    isUserLogged: false,
-    email: "",
+const defaultContextState: ILoginContext = {
     userName: "",
-    loginUser: function (loginInformation: LoginInfo) {
-        this.userName = loginInformation.userName;
-        this.email = loginInformation.email;
-        this.isUserLogged = true;
-    },
-    logoutUser: function () {
-        this.userName = "";
-        this.email = "";
-        this.isUserLogged = false;
-    }
-
+    setUserName: () => { },
+    email: "",
+    setEmail: () => { },
+    isUserLogged: false,
+    setIsUserLogged: () => { }
 }
 
-
-const LoginContext: React.Context<ILoginContext> = createContext(defaultState);
-
-export { LoginContext, defaultState };
-export type { ILoginContext };
+export const LoginContext: React.Context<ILoginContext> = createContext(defaultContextState);

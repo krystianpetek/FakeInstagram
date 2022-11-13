@@ -3,11 +3,11 @@ import { FunctionComponent, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import MenuItem from "../MenuItem/MenuItem";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
+
 interface MenuProps { }
 
-
 const Menu: FunctionComponent<MenuProps> = () => {
-    const context = useContext(LoginContext);
+    const { isUserLogged } = useContext<ILoginContext>(LoginContext);
 
     return (
         <nav className="Menu">
@@ -21,11 +21,16 @@ const Menu: FunctionComponent<MenuProps> = () => {
                 <MenuItem content={"Search"} />
             </NavLink>
 
-            {(context.isUserLogged)
+            {(isUserLogged)
                 ?
-                <NavLink to={`/myProfile`}>
-                    <MenuItem content={"My profile"} />
-                </NavLink>
+                <>
+                    <NavLink to={`/myProfile`}>
+                        <MenuItem content={"My profile"} />
+                    </NavLink>
+                    <NavLink to={`/logout`}>
+                        <MenuItem content={"Logout"} />
+                    </NavLink>
+                </>
                 :
                 <NavLink to={`/login`}>
                     <MenuItem content={"Login"} />

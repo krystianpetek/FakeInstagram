@@ -1,19 +1,18 @@
 import "./App.scss"
 import React from "react";
-import { defaultState, LoginContext } from "./../../contexts/LoginContext/LoginContext";
 import { BrowserRouter } from "react-router-dom";
 import Layout from '../Layout/Layout';
+import { LoginContextProvider } from "../../contexts/LoginContext/LoginContextProvider";
 
 const App: React.FC = () => {
-
   return (
-    <div className="App">
-      <LoginContext.Provider value={defaultState}>
+    <LoginContextProvider>
+      <div className="App">
         <BrowserRouter>
           <Layout />
         </BrowserRouter>
-      </LoginContext.Provider>
-    </div>
+      </div>
+    </LoginContextProvider>
   );
 }
 
