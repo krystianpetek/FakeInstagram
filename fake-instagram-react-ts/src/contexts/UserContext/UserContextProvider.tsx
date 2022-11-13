@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IUser, IUserContext, UserContext } from "./UserContext";
+import API from "./../../API/api";
 
 interface UserContextProviderProps {
     children: JSX.Element;
@@ -15,10 +16,14 @@ export const UserContextProvider = (props: UserContextProviderProps) => {
 
     useEffect(() => {
         if (users.length < 10) {
-            fetch("https://jsonplaceholder.typicode.com/users")
-                .then(response => response.json())
-                .then(usersArr => {
-                    handleSetUsers(usersArr);
+            API.get(`users`)
+                .then(response => response.data)
+                .then(users => {
+                    handleSetUsers(users);
+                })
+                .catch(error => {
+                    console.log(error);
+                    window.location.href = '/errorPage';
                 })
         }
     }, []);

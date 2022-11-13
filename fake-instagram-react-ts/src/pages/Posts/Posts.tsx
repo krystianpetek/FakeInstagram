@@ -1,11 +1,7 @@
-import axios from "axios";
-import { useState, FunctionComponent, useEffect } from "react";
-import { Navigate, Route } from "react-router-dom";
-import Post from "../../components/Post/Post";
 import "./Posts.scss";
-interface PostListProps {
-
-}
+import API from "./../../API/api";
+import { useState, FunctionComponent, useEffect } from "react";
+import Post from "../../components/Post/Post";
 
 export interface PostsResponse {
     body: string,
@@ -14,11 +10,10 @@ export interface PostsResponse {
     userId: number
 }
 
-const APIURL = "https://jsonplaceholder.typicode.com";
+interface PostsProps { }
+const PostList: FunctionComponent<PostsProps> = () => {
 
-const PostList: FunctionComponent<PostListProps> = () => {
-
-    const getPosts = () => axios.get(`${APIURL}/posts`)
+    const getPosts = () => API.get(`users`)
         .then<PostsResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;

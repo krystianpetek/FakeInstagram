@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from "react";
+import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
@@ -16,15 +16,31 @@ const Login: FunctionComponent<LoginProps> = () => {
 
     const { users }: IUserContext = useContext(UserContext);
 
-
     const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const user = users.find(user => user.email === email);
         if (user && user.username === userName) {
             setIsUserLogged(true);
-            return;
         }
     }
+
+    interface ValidateForm {
+        isModified: boolean,
+        isValid: boolean,
+        errors: Array<string>
+    }
+    const defaultValidateForm: ValidateForm = {
+        isModified: false,
+        isValid: false,
+        errors: []
+    };
+
+    const [validForm, setValidForm] = useState<ValidateForm>();
+
+    const username = document.querySelector<HTMLInputElement>("#username");
+    useEffect(() => {
+        console.log(username);
+    }, [username?.value])
 
     return (
         <div className="Login">
