@@ -3,6 +3,8 @@
 .MenuItem {
     font-size: 1.2em;
     padding: 10px 20px;
+    position: relative;
+    top: +10px;
 
     &__Bottom {
         height: 6px;

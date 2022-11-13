@@ -8,7 +8,7 @@
     margin: 0 auto;
     height: auto;
     min-height: 100vh;
-    width: variables.$contentWidth;
+    max-width: variables.$contentWidth;
     color: variables.$primaryTextColor;
     border-radius: 10px;
 
