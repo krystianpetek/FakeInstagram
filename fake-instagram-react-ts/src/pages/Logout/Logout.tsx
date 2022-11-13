@@ -10,7 +10,7 @@ const Logout: FunctionComponent<LogoutProps> = () => {
     useEffect(
         () => {
             if (isUserLogged) setIsUserLogged(false);
-        }, [])
+        }, [isUserLogged, setIsUserLogged])
 
 
     return (

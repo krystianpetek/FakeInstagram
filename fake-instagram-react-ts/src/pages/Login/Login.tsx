@@ -2,6 +2,7 @@ import React, { FunctionComponent, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
+import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
 import "./Login.scss";
 interface LoginProps { }
 
@@ -13,9 +14,16 @@ const Login: FunctionComponent<LoginProps> = () => {
         isUserLogged, setIsUserLogged
     }: ILoginContext = useContext(LoginContext);
 
+    const { users }: IUserContext = useContext(UserContext);
+
+
     const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setIsUserLogged(true);
+        const user = users.find(user => user.email === email);
+        if (user && user.username === userName) {
+            setIsUserLogged(true);
+            return;
+        }
     }
 
     return (

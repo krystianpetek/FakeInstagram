@@ -1,12 +1,11 @@
 import "./Main.scss"
-import React, { FunctionComponent, useContext, useEffect } from "react";
+import React, { FunctionComponent } from "react";
 import { Route, Routes } from "react-router-dom";
 import Posts from "../../pages/Posts/Posts";
 import Search from "../../pages/Search/Search";
 import Home from "../../pages/Home/Home";
 import MyProfile from "../../pages/MyProfile/MyProfile";
 import Login from "../../pages/Login/Login";
-import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import Logout from "../../pages/Logout/Logout";
 
 interface MainProps { }

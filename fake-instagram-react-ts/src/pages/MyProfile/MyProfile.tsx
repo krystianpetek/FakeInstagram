@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useEffect } from "react";
+import React, { FunctionComponent, useContext } from "react";
 import "./MyProfile.scss";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { Navigate } from "react-router-dom";
