@@ -1,20 +1,31 @@
-import React, { FormEvent, FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useContext } from "react";
 import Input from "../../components/Input/Input";
+import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import "./Login.scss";
-interface LoginProps {
-
-}
+interface LoginProps { }
 
 const Login: FunctionComponent<LoginProps> = () => {
 
+    const context = useContext<ILoginContext>(LoginContext);
+
     const [Login, setLogin] = useState<string>("");
     const [Password, setPassword] = useState<string>("");
-    const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+    const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        context.loginUser({
+            userName: Login,
+            email: Password
+        })
+    }
+
+    const handleLogout = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        context.logoutUser();
     }
 
     return (
         <div className="Login">
+
             <form className="Login__Form" onSubmit={handleLogin} noValidate>
                 <Input
                     key="Login__UsernameInput"
@@ -36,6 +47,9 @@ const Login: FunctionComponent<LoginProps> = () => {
                     <button type="submit">Login</button>
                 </div>
             </form>
+            <div className="Login__FormSubmitButton">
+                <button onClick={handleLogout} type="submit">Logout</button>
+            </div>
         </div>
     );
 }
