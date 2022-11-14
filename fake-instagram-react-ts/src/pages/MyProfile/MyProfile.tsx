@@ -4,9 +4,9 @@ import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginCo
 import { Navigate } from "react-router-dom";
 import API from "./../../API/api";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-import { PhotoResponse } from "../../API/PhotoResponse";
-import { AlbumResponse } from "../../API/AlbumResponse";
 import { PostResponse } from "../../API/PostResponse";
+import { AlbumResponse } from "../../API/AlbumResponse";
+import { PhotoResponse } from "../../API/PhotoResponse";
 
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
