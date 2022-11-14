@@ -30,7 +30,7 @@ const PostList: FunctionComponent<PostsProps> = () => {
 
     return (
         <div className="Posts">
-            {Posts?.map(x => <Post key={x?.id} post={x!}></Post>)}
+            {Posts?.map(x => <Post key={x?.id} post={x!}></Post>).sort(() => Math.random() - 0.5)}
         </div >
     );
 }

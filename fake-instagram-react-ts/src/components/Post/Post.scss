@@ -5,13 +5,32 @@
 
 .Post {
     background: variables.$postBackground;
-    width: 240px;
-    height: 320px;
+    width: 480px;
+    height: auto;
     margin: 20px;
+    padding: 20px;
     border-radius: 20px;
     transition: 0.4s;
 
     &:hover {
         box-shadow: 0px 0px 20px #FFF3;
+    }
+
+    &>* {
+        padding: 10px;
+    }
+
+    &__Title {
+        font-size: 1.35em;
+        font-weight: 500;
+    }
+
+    &__Body {
+        line-height: 1.4em;
+    }
+
+    &__Username {
+        color: #9c9afa;
+        font-weight: 600;
     }
 }
