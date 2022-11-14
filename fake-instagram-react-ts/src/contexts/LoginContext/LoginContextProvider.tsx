@@ -24,8 +24,8 @@ export const LoginContextProvider = (props: LoginContextProviderProps) => {
     };
 
     const LoginState: ILoginContext = {
-        userName: Login,
-        setUserName: handleSetLogin,
+        username: Login,
+        setUsername: handleSetLogin,
         email: Email,
         setEmail: handleSetEmail,
         isUserLogged: isUserLogged,

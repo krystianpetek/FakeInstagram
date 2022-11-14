@@ -1,7 +1,7 @@
 import { createContext } from "react";
 export interface ILoginContext {
-    userName: string;
-    setUserName: (userName: string) => void;
+    username: string;
+    setUsername: (userName: string) => void;
     email: string;
     setEmail: (email: string) => void;
     isUserLogged: boolean;
@@ -9,8 +9,8 @@ export interface ILoginContext {
 }
 
 const defaultContextState: ILoginContext = {
-    userName: "",
-    setUserName: () => { },
+    username: "",
+    setUsername: () => { },
     email: "",
     setEmail: () => { },
     isUserLogged: false,

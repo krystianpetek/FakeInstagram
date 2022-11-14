@@ -23,6 +23,15 @@
         border: 0.5px solid #FFF6;
         color: #fff;
         border-radius: 6px;
+    }
 
+    .error {
+        font-size: 0.6em;
+        color: #ff5050FF;
+        visibility: visible;
+    }
+
+    .hidden {
+        visibility: hidden;
     }
 }

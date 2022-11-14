@@ -4,46 +4,88 @@ import Input from "../../components/Input/Input";
 import SubmitFormButton from "../../components/SubmitFormButton/SubmitFormButton";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
+import { IValidateField } from "./IValidateField";
 import "./Login.scss";
-interface LoginProps { }
 
+interface LoginProps { }
 const Login: FunctionComponent<LoginProps> = () => {
 
     const {
-        userName, setUserName,
+        username, setUsername,
         email, setEmail,
         isUserLogged, setIsUserLogged
     }: ILoginContext = useContext(LoginContext);
-
     const { users }: IUserContext = useContext(UserContext);
+
+    const [validUsername, setValidUsername] = useState<IValidateField>(
+        {
+            message: "Username not exists.",
+            valid: false
+        })
+
+    const [validEmail, setValidEmail] = useState<IValidateField>(
+        {
+            message: "Wrong e-mail.",
+            valid: false
+        })
 
     const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const user = users.find(user => user.email === email);
-        if (user && user.username === userName) {
+
+        const user = users.find(user => user.username === username);
+        if (user?.email === email) {
             setIsUserLogged(true);
-            setEmail("");
-            setUserName("");
+            return;
+        }
+
+        if (user?.username !== username) {
+            setValidUsername({
+                ...validUsername,
+                valid: false
+            })
+            return;
+        }
+
+        if (user?.email !== email) {
+            setValidEmail({
+                ...validEmail,
+                valid: false
+            })
+            return;
         }
     }
 
-    interface ValidateForm {
-        isModified: boolean,
-        isValid: boolean,
-        errors: Array<string>
-    }
-    const defaultValidateForm: ValidateForm = {
-        isModified: false,
-        isValid: false,
-        errors: []
+    const handleSetUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUsername(event.currentTarget?.value)
+        setValidUsername({
+            ...validUsername,
+            valid: true
+        })
+        return;
     };
 
-    const [validForm, setValidForm] = useState<ValidateForm>();
+    const handleSetEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.currentTarget?.value)
+        setValidEmail({
+            ...validEmail,
+            valid: true
+        })
+    };
 
-    const username = document.querySelector<HTMLInputElement>("#username");
     useEffect(() => {
-        console.log(username);
-    }, [username?.value])
+        setEmail("");
+        setUsername("");
+
+        setValidUsername({
+            ...validUsername,
+            valid: true
+        })
+
+        setValidEmail({
+            ...validEmail,
+            valid: true
+        })
+    }, [])
 
     return (
         <div className="Login">
@@ -52,18 +94,19 @@ const Login: FunctionComponent<LoginProps> = () => {
                 <Input
                     key="Login__UsernameInput"
                     name="username"
-                    value={userName}
-                    handleChange={event => setUserName(event.currentTarget?.value)}
+                    value={username}
+                    handleChange={event => handleSetUsername(event)}
                     type="text"
                     placeholder="Please enter your username!"
-
+                    validate={validUsername}
                 />
-                <Input key="Login__PasswordInput"
-                    name="password"
+                <Input key="Login__EmailInput"
+                    type="text"
+                    name="email"
                     value={email}
-                    handleChange={event => setEmail(event.currentTarget.value)}
-                    type="password"
+                    handleChange={event => handleSetEmail(event)}
                     placeholder="Please enter your email!"
+                    validate={validEmail}
                 />
                 <SubmitFormButton>Login</SubmitFormButton>
             </form>

@@ -1,8 +1,9 @@
 @use "./../../variables.scss" as variables;
 
 .Login {
-    width: 450px;
-    height: 400px;
+    padding-top: 30px;
+    width: 500px;
+    height: 500px;
     border-radius: 10px;
     border: 2px solid #ffF4;
     background-image: variables.$postBackground;
