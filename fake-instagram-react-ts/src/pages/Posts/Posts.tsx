@@ -2,19 +2,13 @@ import "./Posts.scss";
 import API from "./../../API/api";
 import { useState, FunctionComponent, useEffect } from "react";
 import Post from "../../components/Post/Post";
-
-export interface PostsResponse {
-    body: string,
-    id: number,
-    title: string,
-    userId: number
-}
+import { PostResponse } from "../../API/PostResponse";
 
 interface PostsProps { }
 const PostList: FunctionComponent<PostsProps> = () => {
 
     const getPosts = () => API.get(`posts`)
-        .then<PostsResponse[]>(response => {
+        .then<PostResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
             }
@@ -27,7 +21,7 @@ const PostList: FunctionComponent<PostsProps> = () => {
         }
         );
 
-    const [Posts, setPosts] = useState<Partial<PostsResponse[]>>();
+    const [Posts, setPosts] = useState<Partial<PostResponse[]>>();
 
     useEffect(
         () => {

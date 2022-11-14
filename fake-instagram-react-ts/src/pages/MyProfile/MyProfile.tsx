@@ -5,20 +5,8 @@ import { Navigate } from "react-router-dom";
 import { PostsResponse } from "../Posts/Posts";
 import API from "./../../API/api";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-
-interface PhotosResponse {
-    albumId: number;
-    id: number;
-    title: string;
-    url: string;
-    thumbnailUrl: string;
-}
-
-interface AlbumsResponse {
-    userId: number,
-    id: number,
-    title: string
-}
+import { PhotoResponse } from "../../API/PhotoResponse";
+import { AlbumResponse } from "../../API/AlbumResponse";
 
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
@@ -29,10 +17,10 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
     const [MyPosts, setMyPosts] = useState<PostsResponse[]>();
     const mappedPosts = MyPosts?.map(post => (<li key={post.id}>{post.body}</li>))
 
-    const [MyPhotos, setMyPhotos] = useState<PhotosResponse[]>();
-    const mappedPhotos = MyPhotos?.map(post => (<li key={post.id}>PhotoID: {post.id}, AlbumId: {post.albumId} <img src={post.thumbnailUrl} alt="photo" /></li>))
+    const [MyPhotos, setMyPhotos] = useState<PhotoResponse[]>();
+    const mappedPhotos = MyPhotos?.map(post => (<li key={post.id}>PhotoID: {post.id}, AlbumId: {post.albumId} <img src={post.thumbnailUrl} alt="thumbnailPhoto" /></li>))
 
-    const [MyAlbums, setMyAlbums] = useState<AlbumsResponse[]>();
+    const [MyAlbums, setMyAlbums] = useState<AlbumResponse[]>();
     const mappedAlbums = MyAlbums?.map(post => (
         <>
             <li key={post.id}>
@@ -57,7 +45,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         });
 
     const getMyAlbums = () => API.get(`users/${myProfile?.id}/albums`)
-        .then<AlbumsResponse[]>(response => {
+        .then<AlbumResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
             }
@@ -70,7 +58,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         });
 
     const getMyPhotos = (albumId: number) => API.get(`albums/${albumId}/photos`)
-        .then<PhotosResponse[]>(response => {
+        .then<PhotoResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
             }
