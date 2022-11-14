@@ -13,7 +13,7 @@ export interface PostsResponse {
 interface PostsProps { }
 const PostList: FunctionComponent<PostsProps> = () => {
 
-    const getPosts = () => API.get(`users`)
+    const getPosts = () => API.get(`posts`)
         .then<PostsResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
