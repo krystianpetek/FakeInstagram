@@ -21,6 +21,8 @@ const Login: FunctionComponent<LoginProps> = () => {
         const user = users.find(user => user.email === email);
         if (user && user.username === userName) {
             setIsUserLogged(true);
+            setEmail("");
+            setUserName("");
         }
     }
 
