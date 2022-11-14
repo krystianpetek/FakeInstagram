@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
+import SubmitFormButton from "../../components/SubmitFormButton/SubmitFormButton";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
 import "./Login.scss";
@@ -64,9 +65,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                     type="password"
                     placeholder="Please enter your email!"
                 />
-                <div className="Login__FormSubmitButton">
-                    <button type="submit">Login</button>
-                </div>
+                <SubmitFormButton>Login</SubmitFormButton>
             </form>
         </div>
     );
