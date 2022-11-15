@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { IUser, IUserContext, UserContext } from "./UserContext";
-import API from "./../../API/api";
+import { IUserContext, UserContext } from "./UserContext";
+import UserService from "./../../API/services/UserService";
+import { IUserResponse } from "../../API/IUserResponse";
 
 interface UserContextProviderProps {
     children: JSX.Element;
@@ -8,15 +9,15 @@ interface UserContextProviderProps {
 
 export const UserContextProvider = (props: UserContextProviderProps) => {
 
-    const [users, setUsers] = useState<Array<IUser>>([]);
+    const [users, setUsers] = useState<Array<IUserResponse>>([]);
 
-    const handleSetUsers = (users: Array<IUser>) => {
+    const handleSetUsers = (users: Array<IUserResponse>) => {
         setUsers(users);
     }
 
     useEffect(() => {
         if (users.length < 10) {
-            API.get(`users`)
+            UserService.GetUsers()
                 .then(response => response.data)
                 .then(users => {
                     handleSetUsers(users);

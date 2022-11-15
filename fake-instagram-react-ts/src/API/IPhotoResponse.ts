@@ -1,4 +1,4 @@
-export interface PhotoResponse {
+export interface IPhotoResponse {
   albumId: number;
   id: number;
   title: string;

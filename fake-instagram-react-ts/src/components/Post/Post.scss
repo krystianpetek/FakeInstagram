@@ -12,6 +12,7 @@
     border-radius: 20px;
     transition: 0.4s;
 
+
     &:hover {
         box-shadow: 0px 0px 20px #FFF3;
     }
@@ -32,5 +33,7 @@
     &__Username {
         color: #9c9afa;
         font-weight: 600;
+        display: flex;
+        justify-content: space-between;
     }
 }

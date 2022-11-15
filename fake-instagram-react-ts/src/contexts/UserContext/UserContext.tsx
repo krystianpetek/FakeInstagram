@@ -1,30 +1,8 @@
 import { createContext } from "react";
+import { IUserResponse } from "../../API/IUserResponse";
 
-export interface IUser {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-        geo: {
-            lat: string;
-            lng: string;
-        }
-        phone: string;
-        website: string;
-        company: {
-            name: string;
-            catchPhrase: string;
-            bs: string;
-        }
-    }
-}
 export interface IUserContext {
-    users: Array<IUser>
+    users: Array<IUserResponse>
 }
 
 const defaultContextState: IUserContext = {

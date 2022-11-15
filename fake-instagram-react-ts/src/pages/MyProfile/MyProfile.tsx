@@ -4,9 +4,9 @@ import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginCo
 import { Navigate } from "react-router-dom";
 import API from "./../../API/api";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-import { PostResponse } from "../../API/PostResponse";
-import { AlbumResponse } from "../../API/AlbumResponse";
-import { PhotoResponse } from "../../API/PhotoResponse";
+import { IPostResponse } from "../../API/IPostResponse";
+import { IAlbumResponse } from "../../API/IAlbumResponse";
+import { IPhotoResponse } from "../../API/IPhotoResponse";
 
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
@@ -14,13 +14,13 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
 
     const myProfile = useContext<IUserContext>(UserContext).users.find(user => user.email === email);
 
-    const [MyPosts, setMyPosts] = useState<PostResponse[]>();
+    const [MyPosts, setMyPosts] = useState<IPostResponse[]>();
     const mappedPosts = MyPosts?.map(post => (<li key={post.id}>{post.body}</li>))
 
-    const [MyPhotos, setMyPhotos] = useState<PhotoResponse[]>();
+    const [MyPhotos, setMyPhotos] = useState<IPhotoResponse[]>();
     const mappedPhotos = MyPhotos?.map(post => (<li key={post.id}>PhotoID: {post.id}, AlbumId: {post.albumId} <img src={post.thumbnailUrl} alt="thumbnailPhoto" /></li>))
 
-    const [MyAlbums, setMyAlbums] = useState<AlbumResponse[]>();
+    const [MyAlbums, setMyAlbums] = useState<IAlbumResponse[]>();
     const mappedAlbums = MyAlbums?.map(post => (
         <>
             <li key={post.id}>
@@ -32,7 +32,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         </>))
 
     const getMyPosts = () => API.get(`users/${myProfile?.id}/posts`)
-        .then<PostResponse[]>(response => {
+        .then<IPostResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
             }
@@ -45,7 +45,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         });
 
     const getMyAlbums = () => API.get(`users/${myProfile?.id}/albums`)
-        .then<AlbumResponse[]>(response => {
+        .then<IAlbumResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
             }
@@ -58,7 +58,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         });
 
     const getMyPhotos = (albumId: number) => API.get(`albums/${albumId}/photos`)
-        .then<PhotoResponse[]>(response => {
+        .then<IPhotoResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
             }
