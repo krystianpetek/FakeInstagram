@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import "./MyProfile.scss";
-import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { Navigate } from "react-router-dom";
+import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
 import IPostResponse from "../../API/IPostResponse";
 import IAlbumResponse from "../../API/IAlbumResponse";

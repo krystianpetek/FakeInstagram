@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IUserContext, UserContext } from "./UserContext";
 import UserService from "./../../API/services/UserService";
-import { IUserResponse } from "../../API/IUserResponse";
+import IUserResponse from "../../API/IUserResponse";
 
 interface UserContextProviderProps {
     children: JSX.Element;
@@ -16,7 +16,7 @@ export const UserContextProvider = (props: UserContextProviderProps) => {
     }
 
     useEffect(() => {
-        if (users.length < 10) {
+        if (users.length < 1) {
             UserService.GetUsers()
                 .then(response => response.data)
                 .then(users => {
