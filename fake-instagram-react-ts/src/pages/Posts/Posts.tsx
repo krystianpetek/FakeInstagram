@@ -1,13 +1,14 @@
 import "./Posts.scss";
-import API from "./../../API/api";
 import { useState, FunctionComponent, useEffect } from "react";
 import Post from "../../components/Post/Post";
-import { IPostResponse } from "../../API/IPostResponse";
+import IPostResponse from "../../API/IPostResponse";
+import PostService from "../../API/services/PostService";
 
 interface PostsProps { }
 const PostList: FunctionComponent<PostsProps> = () => {
 
-    const getPosts = () => API.get(`posts`)
+    const getPosts = () => PostService
+        .GetPosts()
         .then<IPostResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
@@ -18,8 +19,7 @@ const PostList: FunctionComponent<PostsProps> = () => {
         .catch(error => {
             console.log(error);
             window.location.href = '/errorPage';
-        }
-        );
+        });
 
     const [Posts, setPosts] = useState<Partial<IPostResponse[]>>();
 

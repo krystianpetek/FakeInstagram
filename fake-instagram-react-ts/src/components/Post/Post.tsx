@@ -1,9 +1,9 @@
-import { FunctionComponent, useContext, useEffect } from "react";
+import { FunctionComponent, useContext } from "react";
 import { CgClose } from "react-icons/cg";
-import { IPostResponse } from "../../API/IPostResponse";
-import { IUserResponse } from "../../API/IUserResponse";
-import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
-import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
+import IPostResponse from "../../API/IPostResponse";
+import IUserResponse from "../../API/IUserResponse";
+import { LoginContext, ILoginContext } from "../../contexts/LoginContext/LoginContext";
+import { UserContext, IUserContext } from "../../contexts/UserContext/UserContext";
 import "./Post.scss";
 
 interface PostProps {

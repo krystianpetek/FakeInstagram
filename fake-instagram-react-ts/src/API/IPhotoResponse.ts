@@ -5,3 +5,4 @@ export interface IPhotoResponse {
   url: string;
   thumbnailUrl: string;
 }
+export default IPhotoResponse;

@@ -9,6 +9,14 @@ const GetAlbum = (albumId: number) => {
   return API.get(`${ApiUrl}/${albumId}`);
 };
 
+const GetUserAlbums = (userId: number) => {
+  return API.get(`${ApiUrl}/${userId}/albums`);
+};
+
+const AddUserAlbum = (userId: number) => {
+  return API.post(`${ApiUrl}/${userId}/albums`);
+};
+
 const GetPhotosFromAlbum = (albumId: number) => {
   return API.get(`${ApiUrl}/${albumId}/photos`);
 };
@@ -36,6 +44,9 @@ const DeleteAlbum = (albumId: number) => {
 const AlbumService = {
   GetAlbums,
   GetAlbum,
+
+  GetUserAlbums,
+  AddUserAlbum,
 
   GetPhotosFromAlbum,
   AddPhotoToAlbum,

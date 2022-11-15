@@ -5,3 +5,5 @@ export interface ICommentResponse {
   email: string;
   body: string;
 }
+
+export default ICommentResponse;

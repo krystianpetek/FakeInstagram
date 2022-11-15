@@ -2,11 +2,13 @@ import React, { FunctionComponent, useContext, useEffect, useState } from "react
 import "./MyProfile.scss";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { Navigate } from "react-router-dom";
-import API from "./../../API/api";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-import { IPostResponse } from "../../API/IPostResponse";
-import { IAlbumResponse } from "../../API/IAlbumResponse";
-import { IPhotoResponse } from "../../API/IPhotoResponse";
+import IPostResponse from "../../API/IPostResponse";
+import IAlbumResponse from "../../API/IAlbumResponse";
+import IPhotoResponse from "../../API/IPhotoResponse";
+import PostService from "../../API/services/PostService";
+import UserService from "../../API/services/UserService";
+import AlbumService from "../../API/services/AlbumService";
 
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
@@ -24,14 +26,14 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
     const mappedAlbums = MyAlbums?.map(post => (
         <>
             <li key={post.id}>
-                <button onClick={() => getMyPhotos(post.id)}>
+                <button onClick={() => getMyPhotosFromAlbum(post.id)}>
                 </button>
                 {post.title}
 
             </li>
         </>))
 
-    const getMyPosts = () => API.get(`users/${myProfile?.id}/posts`)
+    const getMyPosts = () => PostService.GetPostsFromUser(myProfile!.id)
         .then<IPostResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
@@ -44,7 +46,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
             window.location.href = '/errorPage';
         });
 
-    const getMyAlbums = () => API.get(`users/${myProfile?.id}/albums`)
+    const getMyAlbums = () => UserService.GetUserAlbums(myProfile!.id)
         .then<IAlbumResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;
@@ -57,7 +59,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
             window.location.href = '/errorPage';
         });
 
-    const getMyPhotos = (albumId: number) => API.get(`albums/${albumId}/photos`)
+    const getMyPhotosFromAlbum = (albumId: number) => AlbumService.GetPhotosFromAlbum(albumId)
         .then<IPhotoResponse[]>(response => {
             if (response.status === 200) {
                 return response.data;

@@ -33,16 +33,15 @@ const CreateUserTodo = (userId: number) => {
   return API.post(`${ApiUrl}?userid=${userId}`);
 };
 
-const UserService = {
+const TodoService = {
   GetTodos,
   GetTodo,
   CreateTodo,
   UpdateOrCreateTodo,
   UpdateTodo,
   DeleteTodo,
-
   GetUserTodos,
   CreateUserTodo,
 };
 
-export default UserService;
+export default TodoService;

@@ -4,3 +4,4 @@ export interface IPostResponse {
   title: string;
   userId: number;
 }
+export default IPostResponse;
