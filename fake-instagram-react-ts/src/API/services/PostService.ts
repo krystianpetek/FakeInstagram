@@ -1,3 +1,4 @@
+import IPostRequest from "../IPostRequest";
 import API from "./../api";
 const ApiUrl = "posts";
 
@@ -33,8 +34,8 @@ const CreateCommentToPost = (postId: number) => {
   return API.post(`comments?postId=${postId}`);
 };
 
-const CreatePost = () => {
-  return API.post(`${ApiUrl}`);
+const CreatePost = (post: IPostRequest) => {
+  return API.post(`${ApiUrl}`, post);
 };
 
 const UpdateOrCreatePost = (postId: number) => {

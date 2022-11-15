@@ -1,3 +1,4 @@
+import ICommentRequest from "../ICommentRequest";
 import API from "./../api";
 const ApiUrl = "comments";
 
@@ -17,8 +18,8 @@ const CreateCommentForPost = (commentId: number) => {
   return API.post(`comments?postId=${commentId}`);
 };
 
-const CreateComment = () => {
-  return API.post(`${ApiUrl}`);
+const CreateComment = (comment: ICommentRequest) => {
+  return API.post(`${ApiUrl}`, comment);
 };
 
 const UpdateOrCreateComment = (commentId: number) => {
