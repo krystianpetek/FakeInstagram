@@ -1,22 +1,24 @@
 import { createContext } from "react";
+import ICommentRequest from "../../API/ICommentRequest";
 import ICommentResponse from "../../API/ICommentResponse";
+import IPostRequest from "../../API/IPostRequest";
 import IPostResponse from "../../API/IPostResponse";
 
 export interface IPostContext {
     posts: Array<IPostResponse>,
-    addPosts: (post: Array<IPostResponse>) => void,
+    addPost: (post: IPostRequest) => void,
     removePost: (postId: number) => void,
     comments: Array<ICommentResponse>
-    addComments: (comment: Array<ICommentResponse>) => void,
+    addComment: (comment: ICommentRequest) => void,
     removeComment: (commentId: number) => void,
 }
 
 const defaultContextState: IPostContext = {
     posts: [],
-    addPosts: () => { },
+    addPost: () => { },
     removePost: () => { },
     comments: [],
-    addComments: () => { },
+    addComment: () => { },
     removeComment: () => { },
 }
 
