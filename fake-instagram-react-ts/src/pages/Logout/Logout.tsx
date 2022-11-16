@@ -5,12 +5,16 @@ interface LogoutProps { }
 
 const Logout: FunctionComponent<LogoutProps> = () => {
 
-    const { isUserLogged, setIsUserLogged }: ILoginContext = useContext(LoginContext);
+    const { isUserLogged, setIsUserLogged, setEmail, setUsername }: ILoginContext = useContext(LoginContext);
 
     useEffect(
         () => {
-            if (isUserLogged) setIsUserLogged(false);
-        }, [isUserLogged, setIsUserLogged])
+            if (isUserLogged) {
+                setUsername("");
+                setEmail("");
+                setIsUserLogged(false);
+            }
+        }, [isUserLogged])
 
 
     return (
