@@ -17,6 +17,11 @@
         box-shadow: 0px 0px 20px #FFF3;
     }
 
+    &__Header {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__Title {
         font-size: 1.35em;
         font-style: italic;
@@ -27,12 +32,15 @@
     }
 
     &__Comments>* {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 5px;
         color: variables.$light-gray;
     }
 
     &__Username {
-        color: #9c9afa;
+        color: #9780e5;
         font-weight: 600;
         display: flex;
         justify-content: space-between;
@@ -40,5 +48,10 @@
 
     &__Delete {
         cursor: pointer;
+    }
+
+    &__DeleteSign {
+        font-size: 1.3em;
+        color: #e666cc;
     }
 }

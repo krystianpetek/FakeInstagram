@@ -53,11 +53,13 @@ const Post: FunctionComponent<PostProps> = (props) => {
                 <p className="Post__Username">{postUser?.name}</p>
                 <div
                     className="Post__Delete"
-                    onClick={() => { removePost(post.id) }}
-                >{myProfile?.email && <CgClose style={{ fontSize: "1.2em", color: "red" }} />}</div>
+                    onClick={() => { removePost(post.id) }}>
+                    {myProfile?.email && <CgClose className="Post__DeleteSign" />}
+                </div>
             </div>
             <p className="Post__Title">{postTitle}</p>
             <p className="Post__Body">{post.body}</p>
+
             <div className="Post__Comments">{postComments}</div>
 
             {myProfile?.id && <InputPostComment name="newComment"
