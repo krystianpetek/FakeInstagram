@@ -1,0 +1,38 @@
+@use "../../variables.scss" as variables;
+
+.InputPostComment {
+    min-width: 350px;
+    padding: 15px;
+    font-size: 1.3em;
+
+    display: flex;
+    flex-direction: column;
+
+    &>* {
+        margin: 10px;
+    }
+
+    &__Label {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+    &__Properties {
+        padding: 10px;
+        background-color: #15151566;
+        border: 0.5px solid variables.$gray;
+        color: #fff;
+        border-radius: 6px;
+    }
+
+    .error {
+        font-size: 0.6em;
+        color: #ff5050FF;
+        visibility: visible;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+}
