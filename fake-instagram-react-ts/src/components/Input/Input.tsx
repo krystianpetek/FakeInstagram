@@ -11,9 +11,7 @@ interface InputProps {
     placeholder: string;
     handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
     validate: IValidateField
-
 }
-
 const Input: FunctionComponent<InputProps> = (props) => {
     const { name, checked, value, type, placeholder, handleChange, validate } = props;
     const label = name[0]?.toUpperCase() + name.substring(1);
