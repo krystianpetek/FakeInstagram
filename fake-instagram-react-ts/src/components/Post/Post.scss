@@ -9,25 +9,25 @@
     border-radius: 20px;
     transition: 0.4s;
 
+    &>* {
+        padding: 10px;
+    }
 
     &:hover {
         box-shadow: 0px 0px 20px #FFF3;
     }
 
-    &>* {
-        padding: 10px;
-    }
-
     &__Title {
         font-size: 1.35em;
-        font-weight: 500;
+        font-style: italic;
     }
 
     &__Body {
-        line-height: 1.4em;
+        line-height: 1.3em;
     }
 
-    &__Comments {
+    &__Comments>* {
+        padding: 5px;
         color: variables.$light-gray;
     }
 
@@ -36,5 +36,9 @@
         font-weight: 600;
         display: flex;
         justify-content: space-between;
+    }
+
+    &__Delete {
+        cursor: pointer;
     }
 }
