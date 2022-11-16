@@ -19,30 +19,30 @@ interface PostProps {
     post: IPostResponse
     comments: Array<ICommentResponse>
 }
-const Post: FunctionComponent<PostProps> = ({ post, comments }) => {
-    const { username } = useContext<ILoginContext>(LoginContext);
+const Post: FunctionComponent<PostProps> = ({ post, /*comments*/ }) => {
+    const { /*username,*/ email } = useContext<ILoginContext>(LoginContext);
     const users = useContext<IUserContext>(UserContext).users;
-    const myProfile: IUserResponse = users.find(user => user.id === post.userId)!;
+    let myProfile: IUserResponse = users.find(user => user.email === email)!;
     const posts = useContext<IPostContext>(PostContext);
 
-    const commtoPost = comments.map(comment => <li key={comment.id}>{comment.id}{comment.body}</li>);
+    // const commtoPost = comments.map(comment => <p key={comment.id}>{comment.id}. {comment.body} {comment.email === myProfile.email && <CgClose style={{ fontSize: "1.2em", color: "red" }} />}</p>);
     return (
         <div className="Post" style={{ border: `2px solid ${randomColor()}` }}>
 
-            <p className="Post__Username">{myProfile.name}{myProfile.username === username && <div style={{ cursor: "pointer" }} onClick={() => { }}><CgClose style={{ fontSize: "1.2em", color: "red" }} /></div>}</p>
+            {/* <p className="Post__Username">{myProfile?.name}{myProfile?.username === username && <div style={{ cursor: "pointer" }} onClick={() => { posts.removePost(post.id) }}><CgClose style={{ fontSize: "1.2em", color: "red" }} /></div>}</p> */}
 
             <p className="Post__Title">{post.title[0]?.toUpperCase()}{post.title.substring(1)}</p>
             <p className="Post__Body">{post.body}</p>
-            <div>Comments</div>
-            {commtoPost}
+            {/* <div className="Post__Comments">{commtoPost}</div> */}
+
 
             <button
                 onClick={() =>
                     posts.addComment({
                         postId: post.id,
                         body: "comment",
-                        email: "email",
-                        name: "ketep"
+                        email: myProfile?.email,
+                        name: myProfile?.name
                     }
                     )
                 }

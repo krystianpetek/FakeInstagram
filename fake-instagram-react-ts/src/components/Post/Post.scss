@@ -1,7 +1,4 @@
 @use "./../../variables.scss" as variables;
-/* Create random color for brands */
-/* http://geoffgraham.me/randomize-sass */
-
 
 .Post {
     background: variables.$postBackground;
@@ -28,6 +25,10 @@
 
     &__Body {
         line-height: 1.4em;
+    }
+
+    &__Comments {
+        color: variables.$light-gray;
     }
 
     &__Username {
