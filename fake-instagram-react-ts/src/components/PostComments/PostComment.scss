@@ -1,4 +1,4 @@
-.PostComment {
+.Post__Comment {
 
     &__Delete {
         cursor: pointer;
@@ -7,5 +7,10 @@
     &__DeleteSign {
         font-size: 1.3em;
         color: #e666cc;
+    }
+
+    &__User {
+        text-decoration: underline;
+        color: #e6dfdf;
     }
 }

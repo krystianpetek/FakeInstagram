@@ -11,11 +11,11 @@ const PostComments: FunctionComponent<PostCommentProps> = ({ comment }) => {
     const { email } = useContext<ILoginContext>(LoginContext);
     return (
         <div className="Post__Comment">
-            <div className="Post__Text">
-                <p>{comment.name}</p>
+            <div className="Post__Comment__Text">
+                <p className="Post__Comment__User">{comment.email}</p>
                 <p>{comment.body}</p>
             </div>
-            <div className="Post__Delete">{comment.email === email && <CgClose className="Post__DeleteSign" />}</div>
+            <div className="Post__Comment__Delete">{comment.email === email && <CgClose className="Post__Comment__DeleteSign" />}</div>
         </div>
     );
 }
