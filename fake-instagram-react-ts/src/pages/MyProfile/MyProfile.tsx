@@ -9,12 +9,14 @@ import IPhotoResponse from "../../API/IPhotoResponse";
 import PostService from "../../API/services/PostService";
 import UserService from "../../API/services/UserService";
 import AlbumService from "../../API/services/AlbumService";
+import IUserResponse from "../../API/IUserResponse";
 
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
-    const { isUserLogged, email } = useContext<ILoginContext>(LoginContext)
+    const { isUserLogged, email, username } = useContext<ILoginContext>(LoginContext)
 
-    const myProfile = useContext<IUserContext>(UserContext).users.find(user => user.email === email);
+    const { users } = useContext<IUserContext>(UserContext);
+    const myProfile: (IUserResponse | null) = users.find(user => user.email === email && user.username === username) ?? null;
 
     const [MyPosts, setMyPosts] = useState<IPostResponse[]>();
     const mappedPosts = MyPosts?.map(post => (<li key={post.id}>{post.body}</li>))

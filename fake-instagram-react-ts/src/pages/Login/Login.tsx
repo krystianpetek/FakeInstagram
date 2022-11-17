@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
-import SubmitFormButton from "../../components/SubmitFormButton/SubmitFormButton";
+import Button from "../../components/Shared/Button/Button";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
 import { IValidateField } from "./IValidateField";
@@ -108,7 +108,7 @@ const Login: FunctionComponent<LoginProps> = () => {
                     placeholder="Please enter your email!"
                     validate={validEmail}
                 />
-                <SubmitFormButton>Login</SubmitFormButton>
+                <Button>Login</Button>
             </form>
         </div>
     );
