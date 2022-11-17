@@ -54,7 +54,7 @@ const Post: FunctionComponent<PostProps> = (props) => {
                 <div
                     className="Post__Delete"
                     onClick={() => { removePost(post.id) }}>
-                    {myProfile?.email && <CgClose className="Post__DeleteSign" />}
+                    {email === postUser.email && <CgClose className="Post__DeleteSign" />}
                 </div>
             </div>
             <p className="Post__Title">{postTitle}</p>
