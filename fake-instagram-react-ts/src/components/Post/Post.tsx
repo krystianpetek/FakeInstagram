@@ -1,4 +1,3 @@
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import ICommentResponse from "../../API/ICommentResponse";
@@ -7,17 +6,11 @@ import IUserResponse from "../../API/IUserResponse";
 import { LoginContext, ILoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IPostContext, PostContext } from "../../contexts/PostContext/PostContext";
 import { UserContext, IUserContext } from "../../contexts/UserContext/UserContext";
-import InputPostComment from "../AddComment/InputPostComment";
+import InputPostComment from "../InputPostComment/InputPostComment";
 import PostComment from "../PostComments/PostComment";
 import "./Post.scss";
+import { randomColor } from "../../Helpers/randomColor";
 
-const randomColor = () => {
-    const randomHex = () => Math.floor(Math.random() * 255).toString(16);
-    const r = randomHex();
-    const g = randomHex();
-    const b = randomHex();
-    return `#${r}${g}${b}`;
-}
 interface PostProps {
     post: IPostResponse
     comments: Array<ICommentResponse>
@@ -47,7 +40,7 @@ const Post: FunctionComponent<PostProps> = (props) => {
         return <PostComment
             key={comment.id}
             comment={comment}
-            removeComment={removeComment}></PostComment>
+            removeComment={removeComment} />
     })
 
     return (
