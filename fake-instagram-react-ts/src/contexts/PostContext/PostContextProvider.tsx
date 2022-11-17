@@ -22,11 +22,14 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
         setComments(comments);
     }
 
-    const handleAddPost = (post: IPostRequest): void => {
-        PostService.CreatePost(post)
+    const handleAddPost = async (post: IPostRequest): Promise<void> => {
+        await PostService.CreatePost(post)
             .then<IPostResponse>(response => response.data)
             .then(post => {
-                setPosts((prevValue) => [...prevValue, post])
+                setPosts((prevValue) => {
+                    post.id = prevValue.length + 1;
+                    return [post, ...prevValue]
+                })
             })
             .catch(error => {
                 console.log(error);
@@ -34,11 +37,14 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
     }
 
-    const handleAddComment = (comment: ICommentRequest): void => {
-        CommentService.CreateComment(comment)
+    const handleAddComment = async (comment: ICommentRequest): Promise<void> => {
+        await CommentService.CreateComment(comment)
             .then<ICommentResponse>(response => response.data)
             .then(comment => {
-                setComments((prevValue) => [...prevValue, comment])
+                setComments((prevValue) => {
+                    comment.id = prevValue.length + 1;
+                    return [...prevValue, comment]
+                })
             })
             .catch(error => {
                 console.log(error);
@@ -46,8 +52,8 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
     }
 
-    const handleRemovePost = (postId: number): void => {
-        PostService.DeletePost(postId)
+    const handleRemovePost = async (postId: number): Promise<void> => {
+        await PostService.DeletePost(postId)
             .then(response => {
                 if (response.status === 200) {
                     setPosts((prevValue) => [...prevValue.filter(post => post.id !== postId)]);
@@ -61,8 +67,8 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
     }
 
-    const handleRemoveComment = (commentId: number): void => {
-        CommentService.DeleteComment(commentId)
+    const handleRemoveComment = async (commentId: number): Promise<void> => {
+        await CommentService.DeleteComment(commentId)
             .then(response => {
                 if (response.status === 200) {
                     setComments((prevValue) => [...prevValue.filter(comment => comment.id !== commentId)]);
@@ -79,30 +85,36 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
     useEffect(() => {
 
         if (posts.length < 1) {
-            PostService.GetPosts()
-                .then(response => response.data)
-                .then(posts => {
-                    handleGetPosts(posts);
-                })
-                .catch(error => {
-                    console.log(error);
-                    window.location.href = '/errorPage';
-                })
+            const fetchPosts = async () => {
+                await PostService.GetPosts()
+                    .then(response => response.data)
+                    .then(posts => {
+                        handleGetPosts(posts);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        window.location.href = '/errorPage';
+                    })
+            }
+            fetchPosts();
         }
 
         if (comments.length < 1) {
-            CommentService.GetComments()
-                .then(response => response.data)
-                .then(comments => {
-                    handleGetComments(comments);
-                })
-                .catch(error => {
-                    console.log(error);
-                    window.location.href = '/errorPage';
-                })
+            const fetchComments = async () => {
+                await CommentService.GetComments()
+                    .then(response => response.data)
+                    .then(comments => {
+                        handleGetComments(comments);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        window.location.href = '/errorPage';
+                    })
+            }
+            fetchComments();
         }
 
-    }, []);
+    }, [comments.length, posts.length]);
 
     const PostState: IPostContext = {
         posts: posts,
