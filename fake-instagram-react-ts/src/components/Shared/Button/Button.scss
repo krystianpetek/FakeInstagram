@@ -1,0 +1,17 @@
+@use "./../../../variables.scss" as variables;
+
+.Button {
+    padding-top: 20px;
+
+    &__Button {
+        background-color: variables.$submitFormButtonColor;
+        border-radius: 8px;
+        padding: 15px 40px;
+        color: #141414;
+        font-weight: 600;
+
+        &:hover {
+            background-color: #b9aaeeff;
+        }
+    }
+}
