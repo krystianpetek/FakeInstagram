@@ -3,5 +3,6 @@
 .Main {
     @include variables.PositionToAllBaseView;
     justify-content: center;
+    align-items: flex-start;
     flex-grow: 1;
 }

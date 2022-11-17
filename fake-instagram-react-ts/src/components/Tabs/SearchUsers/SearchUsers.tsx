@@ -1,14 +1,10 @@
 import { FunctionComponent } from "react";
-import "./SearchUsers.scss";
 
-interface SearchUsersProps {
-
-}
-
+interface SearchUsersProps { }
 const SearchUsers: FunctionComponent<SearchUsersProps> = () => {
     return (
         <div className="SearchUsers">
-
+            <p>Search users</p>
         </div>
     );
 }
