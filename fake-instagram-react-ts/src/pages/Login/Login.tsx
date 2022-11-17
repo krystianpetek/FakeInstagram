@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import Input from "../../components/Input/Input";
+import Input from "../../components/Shared/Input/Input";
 import Button from "../../components/Shared/Button/Button";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-import { IValidateField } from "./IValidateField";
+import { IValidateField } from "./../../API/IValidateField";
 import "./Login.scss";
 
 interface LoginProps { }

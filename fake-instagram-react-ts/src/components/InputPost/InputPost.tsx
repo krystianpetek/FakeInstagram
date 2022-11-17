@@ -1,4 +1,5 @@
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
+import IPostRequest from "../../API/IPostRequest";
 import Button from "../Shared/Button/Button";
 import "./InputPost.scss";
 type InputType = "text" | "password";
@@ -8,31 +9,50 @@ interface InputPostProps {
     type: InputType;
     value?: string | number;
     placeholder?: string;
-    handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+    newPost: IPostRequest,
+    setNewPost: any,
+    handleOnChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    handleSubmitForm: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const InputPost: FunctionComponent<InputPostProps> = (props) => {
-    const { name, type, placeholder, handleKeyDown } = props;
+    const { name, type, placeholder, newPost } = props;
+
+    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const newValue = {
+            ...newPost
+        }
+        const currentValue = event.currentTarget.value;
+        (event.currentTarget.id === "inputTitle") ? newValue.title = currentValue : newValue.body = currentValue;
+        props.setNewPost(newValue);
+        console.log(newValue);
+    }
     return (
-        <div className="InputPost">
-            <input
-                className="InputPost__Title"
-                id={name}
-                name={name}
-                onKeyDown={handleKeyDown}
-                placeholder={"Enter a title for new post!"}
-                type={type} />
 
-            <textarea
-                className="InputPost__Body"
-                id={name}
-                name={name}
-                placeholder={placeholder} />
+        <form onSubmit={props.handleSubmitForm}>
+            <div className="InputPost">
+                <input
+                    className="InputPost__Title"
+                    id={"inputTitle"}
+                    name={name}
+                    value={newPost.title}
+                    onChange={handleOnChange}
+                    placeholder={"Enter a title for new post!"}
+                    type={type} />
 
-            <div className="InputPost__Button">
-                <Button>Create!</Button>
-            </div>
-        </div>
+                <textarea
+                    className="InputPost__Body"
+                    id={"inputBody"}
+                    name={name}
+                    value={newPost.body}
+                    onChange={handleOnChange}
+                    placeholder={placeholder} />
+
+                <div className="InputPost__Button">
+                    <Button type="submit">Create!</Button>
+                </div>
+            </div >
+        </form>
     )
 }
 

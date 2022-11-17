@@ -1,5 +1,5 @@
 import { ChangeEvent, FunctionComponent } from "react";
-import { IValidateField } from "../../pages/Login/IValidateField";
+import { IValidateField } from "../../../API/IValidateField";
 import "./Input.scss";
 type InputType = "text" | "password";
 
