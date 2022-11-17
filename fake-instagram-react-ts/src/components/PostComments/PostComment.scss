@@ -1,3 +1,5 @@
+@use "./../../variables.scss" as variables;
+
 .Post__Comment {
 
     &__Delete {
@@ -6,11 +8,11 @@
 
     &__DeleteSign {
         font-size: 1.3em;
-        color: #e666cc;
+        color: variables.$deleteSignColor
     }
 
     &__User {
         text-decoration: underline;
-        color: #e6dfdf;
+        color: variables.$postCommentEmailColor;
     }
 }
