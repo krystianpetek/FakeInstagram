@@ -1,0 +1,36 @@
+@use "../../variables.scss" as variables;
+
+.InputPost {
+    min-width: 350px;
+    padding: 15px;
+    font-size: 1.3em;
+
+    display: flex;
+    flex-direction: column;
+
+    &>* {
+        margin: 10px;
+    }
+
+    &__Title {
+        padding: 10px;
+        background-color: #15151566;
+        border: 0.5px solid variables.$gray;
+        color: #fff;
+        border-radius: 6px;
+    }
+
+    &__Body {
+        padding: 10px;
+        height: 150px;
+        background-color: #15151566;
+        border: 0.5px solid variables.$gray;
+        color: #fff;
+        border-radius: 6px;
+    }
+
+    &__Button {
+        display: flex;
+        justify-content: center;
+    }
+}
