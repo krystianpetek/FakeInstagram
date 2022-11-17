@@ -25,7 +25,7 @@ interface PostProps {
 const Post: FunctionComponent<PostProps> = (props) => {
     const { username, email } = useContext<ILoginContext>(LoginContext);
     const { users } = useContext<IUserContext>(UserContext);
-    const { addComment, removePost } = useContext<IPostContext>(PostContext);
+    const { addComment, removePost, removeComment } = useContext<IPostContext>(PostContext);
     const myProfile: (IUserResponse | null) = users.find(user => user.email === email && user.username === username) ?? null;
 
     const handleNewComment = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -44,7 +44,10 @@ const Post: FunctionComponent<PostProps> = (props) => {
     const postTitle = `${post?.title[0]?.toUpperCase()}${post?.title?.substring(1)}`;
     const postUser = users.find(user => user.id === post.userId)!;
     const postComments = comments.map(comment => {
-        return <PostComment key={comment.id} comment={comment}></PostComment>
+        return <PostComment
+            key={comment.id}
+            comment={comment}
+            removeComment={removeComment}></PostComment>
     })
 
     return (
@@ -67,7 +70,7 @@ const Post: FunctionComponent<PostProps> = (props) => {
                 type="text"
                 key={post.id}
                 handleKeyDown={handleNewComment} />}
-        </div >
+        </div>
     );
 }
 

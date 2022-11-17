@@ -3,4 +3,14 @@
 .Posts {
     @include variables.PositionToAllBaseView;
     justify-content: center;
+
+    &__AddNew {
+        background: variables.$postBackground;
+        height: auto;
+        margin: 20px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+        transition: 0.4s;
+    }
 }
