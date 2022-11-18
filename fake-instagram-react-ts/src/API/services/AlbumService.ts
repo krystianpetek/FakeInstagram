@@ -44,13 +44,10 @@ const DeleteAlbum = (albumId: number) => {
 const AlbumService = {
   GetAlbums,
   GetAlbum,
-
   GetUserAlbums,
   AddUserAlbum,
-
   GetPhotosFromAlbum,
   AddPhotoToAlbum,
-
   CreateAlbum,
   UpdateOrCreateAlbum,
   UpdateAlbum,

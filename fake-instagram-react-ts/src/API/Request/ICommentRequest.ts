@@ -1,4 +1,4 @@
-export interface ICommentRequest {
+interface ICommentRequest {
   postId: number;
   name: string;
   email: string;

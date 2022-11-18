@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
-import ICommentResponse from "../../API/ICommentResponse";
-import IPostResponse from "../../API/IPostResponse";
-import IUserResponse from "../../API/IUserResponse";
+import ICommentResponse from "../../API/Response/ICommentResponse";
+import IPostResponse from "../../API/Response/IPostResponse";
+import IUserResponse from "../../API/Response/IUserResponse";
 import { LoginContext, ILoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IPostContext, PostContext } from "../../contexts/PostContext/PostContext";
 import { UserContext, IUserContext } from "../../contexts/UserContext/UserContext";

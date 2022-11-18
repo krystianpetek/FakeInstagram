@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from "react";
-import IAlbumResponse from "../../../API/IAlbumResponse";
-import IPhotoResponse from "../../../API/IPhotoResponse";
+import IAlbumResponse from "../../../API/Response/IAlbumResponse";
+import IPhotoResponse from "../../../API/Response/IPhotoResponse";
 import AlbumService from "../../../API/services/AlbumService";
 import { isNumber } from "../../../Helpers/isNumber";
 import AlbumInfo from "../../AlbumInfo/AlbumInfo";

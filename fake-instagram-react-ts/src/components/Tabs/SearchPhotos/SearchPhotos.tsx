@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import IPhotoResponse from "../../../API/IPhotoResponse";
+import IPhotoResponse from "../../../API/Response/IPhotoResponse";
 import PhotoService from "../../../API/services/PhotoService";
 import { isNumber } from "../../../Helpers/isNumber";
 import PhotoInfo from "../../PhotoInfo/PhotoInfo";

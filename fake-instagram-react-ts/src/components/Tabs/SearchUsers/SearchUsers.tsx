@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
-import IUserResponse from "../../../API/IUserResponse";
-import UserService from "../../../API/services/UserService";
-import { isNumber } from "../../../Helpers/isNumber";
-import SearchInput from "../../Shared/SearchInput/SearchInput";
-import UserInfo from "../../UserInfo/UserInfo";
 import "./SearchUsers.scss";
+import UserInfo from "../../UserInfo/UserInfo";
+import SearchInput from "../../Shared/SearchInput/SearchInput";
+import { isNumber } from "../../../Helpers/isNumber";
+import UserService from "../../../API/services/UserService";
+import IUserResponse from "../../../API/Response/IUserResponse";
 
 interface SearchUsersProps { }
 const SearchUsers: FunctionComponent<SearchUsersProps> = () => {

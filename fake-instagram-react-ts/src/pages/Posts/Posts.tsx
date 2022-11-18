@@ -1,13 +1,12 @@
-import "./Posts.scss";
 import React, { FunctionComponent, useContext, useState } from "react";
+import "./Posts.scss";
 import Post from "../../components/Post/Post";
+import InputPost from "../../components/InputPost/InputPost";
 import { IPostContext, PostContext } from "../../contexts/PostContext/PostContext";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
-import { randomColor } from "../../Helpers/randomColor";
-import InputPost from "../../components/InputPost/InputPost";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-import IUserResponse from "../../API/IUserResponse";
-import IPostRequest from "../../API/IPostRequest";
+import IUserResponse from "../../API/Response/IUserResponse";
+import IPostRequest from "../../API/Request/IPostRequest";
 
 interface PostsProps { }
 const Posts: FunctionComponent<PostsProps> = () => {

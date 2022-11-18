@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { IPostContext, PostContext } from "./PostContext";
-import IPostResponse from "../../API/IPostResponse";
-import ICommentResponse from "../../API/ICommentResponse";
+import IPostResponse from "../../API/Response/IPostResponse";
+import ICommentResponse from "../../API/Response/ICommentResponse";
 import PostService from "../../API/services/PostService";
 import CommentService from "../../API/services/CommentService";
-import IPostRequest from "../../API/IPostRequest";
-import ICommentRequest from "../../API/ICommentRequest";
+import IPostRequest from "../../API/Request/IPostRequest";
+import ICommentRequest from "../../API/Request/ICommentRequest";
 
 interface PostContextProviderProps {
     children: JSX.Element;

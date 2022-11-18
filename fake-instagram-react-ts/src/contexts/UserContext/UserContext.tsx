@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import IUserResponse from "../../API/IUserResponse";
+import IUserResponse from "../../API/Response/IUserResponse";
 
 export interface IUserContext {
     users: Array<IUserResponse>

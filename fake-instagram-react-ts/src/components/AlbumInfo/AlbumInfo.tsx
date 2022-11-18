@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import "./AlbumInfo.scss";
-import IAlbumResponse from "../../API/IAlbumResponse";
+import IAlbumResponse from "../../API/Response/IAlbumResponse";
 import { MdPermIdentity, MdTitle } from "react-icons/md";
-import IPhotoResponse from "../../API/IPhotoResponse";
+import IPhotoResponse from "../../API/Response/IPhotoResponse";
 import PhotoInfo from "../PhotoInfo/PhotoInfo";
 
 interface AlbumInfoProps {

@@ -1,4 +1,4 @@
-export interface IPostRequest {
+interface IPostRequest {
   body: string;
   title: string;
   userId: number;

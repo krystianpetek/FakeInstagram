@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import IPostRequest from "../../API/IPostRequest";
+import IPostRequest from "../../API/Request/IPostRequest";
 import Button from "../Shared/Button/Button";
 import "./InputPost.scss";
 type InputType = "text" | "password";
