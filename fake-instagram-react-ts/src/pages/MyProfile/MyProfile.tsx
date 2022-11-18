@@ -91,12 +91,12 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
                     <li>Name: {myProfile?.name}</li>
                     <li>Username: {myProfile?.username}</li>
                     <li>Email: {myProfile?.email}</li>
-                    <li>Phone: {myProfile?.address.phone}</li>
+                    <li>Phone: {myProfile?.phone}</li>
                     <li>City: {myProfile?.address.zipcode} {myProfile?.address.city} {myProfile?.address.street}</li>
-                    <li>Company: {myProfile?.address.company?.name} {myProfile?.address.company?.catchPhrase} {myProfile?.address.company?.name}</li>
+                    <li>Company: {myProfile?.company?.name} {myProfile?.company?.catchPhrase} {myProfile?.company?.name}</li>
                     <li>Geo: {myProfile?.address.geo.lat} {myProfile?.address.geo.lng}</li>
                     <li>Suite: {myProfile?.address.suite}</li>
-                    <li>Website: {myProfile?.address.website}</li>
+                    <li>Website: {myProfile?.website}</li>
                 </div>
 
                 <br />
