@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FakeInstagram/static/css/main.3bbd849e.css",
+    "main.js": "/FakeInstagram/static/js/main.4b50b23f.js",
+    "index.html": "/FakeInstagram/index.html",
+    "main.3bbd849e.css.map": "/FakeInstagram/static/css/main.3bbd849e.css.map",
+    "main.4b50b23f.js.map": "/FakeInstagram/static/js/main.4b50b23f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3bbd849e.css",
+    "static/js/main.4b50b23f.js"
+  ]
+}
