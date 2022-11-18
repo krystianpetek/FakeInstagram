@@ -24,7 +24,7 @@ export const UserContextProvider = (props: UserContextProviderProps) => {
                 })
                 .catch(error => {
                     console.log(error);
-                    window.location.href = '/errorPage';
+                    // window.location.href = '/errorPage';
                 })
         }
     }, []);

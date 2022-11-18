@@ -33,7 +33,7 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
             .catch(error => {
                 console.log(error);
-                window.location.href = '/errorPage';
+                // window.location.href = '/errorPage';
             })
     }
 
@@ -48,7 +48,7 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
             .catch(error => {
                 console.log(error);
-                window.location.href = '/errorPage';
+                // window.location.href = '/errorPage';
             })
     }
 
@@ -63,7 +63,7 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
             .catch(error => {
                 console.log(error);
-                window.location.href = '/errorPage';
+                // window.location.href = '/errorPage';
             })
     }
 
@@ -78,7 +78,7 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
             })
             .catch(error => {
                 console.log(error);
-                window.location.href = '/errorPage';
+                // window.location.href = '/errorPage';
             })
     }
 
@@ -93,7 +93,7 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
                     })
                     .catch(error => {
                         console.log(error);
-                        window.location.href = '/errorPage';
+                        // window.location.href = '/errorPage';
                     })
             }
             fetchPosts();
@@ -108,7 +108,7 @@ export const PostContextProvider = (props: PostContextProviderProps): JSX.Elemen
                     })
                     .catch(error => {
                         console.log(error);
-                        window.location.href = '/errorPage';
+                        // window.location.href = '/errorPage';
                     })
             }
             fetchComments();

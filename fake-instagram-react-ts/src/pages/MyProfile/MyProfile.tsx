@@ -45,7 +45,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         .then(response => setMyPosts(response))
         .catch(error => {
             console.log(error);
-            window.location.href = '/errorPage';
+            // window.location.href = '/errorPage';
         });
 
     const getMyAlbums = () => UserService.GetUserAlbums(myProfile!.id)
@@ -58,7 +58,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         .then(response => setMyAlbums(response))
         .catch(error => {
             console.log(error);
-            window.location.href = '/errorPage';
+            // window.location.href = '/errorPage';
         });
 
     const getMyPhotosFromAlbum = (albumId: number) => AlbumService.GetPhotosFromAlbum(albumId)
@@ -71,7 +71,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         .then(response => setMyPhotos(response))
         .catch(error => {
             console.log(error);
-            window.location.href = '/errorPage';
+            // window.location.href = '/errorPage';
         });
 
     useEffect(() => {
