@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/FakeInstagram/static/css/main.3bbd849e.css",
-    "main.js": "/FakeInstagram/static/js/main.0419afb3.js",
-    "index.html": "/FakeInstagram/index.html",
-    "main.3bbd849e.css.map": "/FakeInstagram/static/css/main.3bbd849e.css.map",
-    "main.0419afb3.js.map": "/FakeInstagram/static/js/main.0419afb3.js.map"
+    "main.css": "/static/css/main.3bbd849e.css",
+    "main.js": "/static/js/main.0419afb3.js",
+    "index.html": "/index.html",
+    "main.3bbd849e.css.map": "/static/css/main.3bbd849e.css.map",
+    "main.0419afb3.js.map": "/static/js/main.0419afb3.js.map"
   },
   "entrypoints": [
     "static/css/main.3bbd849e.css",
