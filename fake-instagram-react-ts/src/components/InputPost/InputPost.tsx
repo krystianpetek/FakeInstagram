@@ -11,7 +11,7 @@ interface InputPostProps {
     placeholder?: string;
     newPost: IPostRequest,
     setNewPost: any,
-    handleOnChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    handleOnChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     handleSubmitForm: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 const InputPost: FunctionComponent<InputPostProps> = (props) => {

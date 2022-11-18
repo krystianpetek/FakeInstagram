@@ -4,7 +4,6 @@ import { ILoginContext, LoginContext } from "./LoginContext";
 interface LoginContextProviderProps {
     children: JSX.Element;
 }
-
 export const LoginContextProvider = (props: LoginContextProviderProps) => {
 
     const [Login, setLogin] = useState<string>("");

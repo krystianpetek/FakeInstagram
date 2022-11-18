@@ -8,8 +8,8 @@ interface FooterProps {
 const Footer: FunctionComponent<FooterProps> = () => {
     return (
         <footer className="Footer">
+            <p>Copyright &copy; 2022</p>
             <p>Krystian Petek</p>
-            <span style={{ margin: "10px" }}>Copyright &copy; 2022</span>
             <a href="https://facebook.com"><FaFacebook /></a>
             <FaGithub />
 

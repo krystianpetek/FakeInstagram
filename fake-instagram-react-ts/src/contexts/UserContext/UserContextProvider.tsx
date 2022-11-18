@@ -6,7 +6,6 @@ import IUserResponse from "../../API/Response/IUserResponse";
 interface UserContextProviderProps {
     children: JSX.Element;
 }
-
 export const UserContextProvider = (props: UserContextProviderProps) => {
 
     const [users, setUsers] = useState<Array<IUserResponse>>([]);
