@@ -1,11 +1,10 @@
-import "./Menu.scss";
 import { FunctionComponent, useContext } from "react";
 import { NavLink } from "react-router-dom";
+import "./Menu.scss";
 import MenuItem from "../MenuItem/MenuItem";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 
 interface MenuProps { }
-
 const Menu: FunctionComponent<MenuProps> = () => {
     const { isUserLogged } = useContext<ILoginContext>(LoginContext);
 

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import "./InputPostComment.scss";
-type InputType = "text" | "password";
 
+type InputType = "text" | "password";
 interface InputPostCommentProps {
     name: string;
     type: InputType;
@@ -9,9 +9,7 @@ interface InputPostCommentProps {
     placeholder: string;
     handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
-
-const InputPostComment: FunctionComponent<InputPostCommentProps> = (props) => {
-    const { name, type, placeholder, handleKeyDown } = props;
+const InputPostComment: FunctionComponent<InputPostCommentProps> = ({ name, type, placeholder, handleKeyDown }) => {
     return (
         <div className="InputPostComment">
             <input

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import "./UserInfo.scss";
-import IUserResponse from "../../API/Response/IUserResponse";
 import { MdHomeWork, MdPermIdentity, MdHome, MdEmail, MdPhone, MdWeb } from "react-icons/md";
+import IUserResponse from "../../API/Response/IUserResponse";
 
 interface UserInfoProps {
     user: IUserResponse | null

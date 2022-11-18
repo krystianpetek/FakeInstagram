@@ -9,10 +9,10 @@ interface TabContentProps {
 const TabContent: FunctionComponent<TabContentProps> = ({ id, activeTab, children }) => {
 
     return (
-        activeTab === id ? <div className="TabContent">
-            {children}
-        </div>
-            : null
+        activeTab === id ?
+            <div className="TabContent">
+                {children}
+            </div> : null
     );
 };
 export default TabContent;

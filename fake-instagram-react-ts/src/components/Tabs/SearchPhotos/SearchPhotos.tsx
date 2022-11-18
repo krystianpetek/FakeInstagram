@@ -1,10 +1,10 @@
 import { FunctionComponent, useState } from "react";
+import "./SearchPhotos.scss";
+import { isNumber } from "../../../Helpers/isNumber";
+import SearchInput from "../../Shared/SearchInput/SearchInput";
+import PhotoInfo from "../../PhotoInfo/PhotoInfo";
 import IPhotoResponse from "../../../API/Response/IPhotoResponse";
 import PhotoService from "../../../API/services/PhotoService";
-import { isNumber } from "../../../Helpers/isNumber";
-import PhotoInfo from "../../PhotoInfo/PhotoInfo";
-import SearchInput from "../../Shared/SearchInput/SearchInput";
-import "./SearchPhotos.scss";
 
 interface SearchPhotosProps { }
 const SearchPhotos: FunctionComponent<SearchPhotosProps> = () => {
