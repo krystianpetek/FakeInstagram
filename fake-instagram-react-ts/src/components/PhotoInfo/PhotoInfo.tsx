@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import "./PhotoInfo.scss";
-import IPhotoResponse from "../../API/IPhotoResponse";
 import { MdPermIdentity, MdTitle } from "react-icons/md";
 import { CgMinimizeAlt, CgMaximizeAlt } from "react-icons/cg";
+import IPhotoResponse from "../../API/Response/IPhotoResponse";
 
 interface PhotoInfoProps {
     photo: IPhotoResponse | null

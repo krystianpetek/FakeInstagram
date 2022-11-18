@@ -1,15 +1,15 @@
-import React, { FunctionComponent, useContext, useEffect, useState } from "react";
+import React, { FunctionComponent, useContext } from "react";
+import "./Post.scss";
 import { CgClose } from "react-icons/cg";
-import ICommentResponse from "../../API/ICommentResponse";
-import IPostResponse from "../../API/IPostResponse";
-import IUserResponse from "../../API/IUserResponse";
+import { randomColor } from "../../Helpers/randomColor";
+import PostComment from "../PostComments/PostComment";
+import InputPostComment from "../InputPostComment/InputPostComment";
 import { LoginContext, ILoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IPostContext, PostContext } from "../../contexts/PostContext/PostContext";
 import { UserContext, IUserContext } from "../../contexts/UserContext/UserContext";
-import InputPostComment from "../InputPostComment/InputPostComment";
-import PostComment from "../PostComments/PostComment";
-import "./Post.scss";
-import { randomColor } from "../../Helpers/randomColor";
+import ICommentResponse from "../../API/Response/ICommentResponse";
+import IPostResponse from "../../API/Response/IPostResponse";
+import IUserResponse from "../../API/Response/IUserResponse";
 
 interface PostProps {
     post: IPostResponse

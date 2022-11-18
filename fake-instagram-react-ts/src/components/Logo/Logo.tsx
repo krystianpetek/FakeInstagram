@@ -1,8 +1,8 @@
-import { FunctionComponent } from "react";
-import React, { Link, Route, Routes } from "react-router-dom"
+import React, { FunctionComponent } from "react";
+import { Link } from "react-router-dom"
 import "./Logo.scss";
-interface LogoProps { }
 
+interface LogoProps { }
 const Logo: FunctionComponent<LogoProps> = () => {
     return (
         <Link to="/">

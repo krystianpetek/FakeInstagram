@@ -3,13 +3,13 @@ import "./MyProfile.scss";
 import { Navigate } from "react-router-dom";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
-import IPostResponse from "../../API/IPostResponse";
-import IAlbumResponse from "../../API/IAlbumResponse";
-import IPhotoResponse from "../../API/IPhotoResponse";
+import IPostResponse from "../../API/Response/IPostResponse";
+import IAlbumResponse from "../../API/Response/IAlbumResponse";
+import IPhotoResponse from "../../API/Response/IPhotoResponse";
+import IUserResponse from "../../API/Response/IUserResponse";
 import PostService from "../../API/services/PostService";
 import UserService from "../../API/services/UserService";
 import AlbumService from "../../API/services/AlbumService";
-import IUserResponse from "../../API/IUserResponse";
 
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {

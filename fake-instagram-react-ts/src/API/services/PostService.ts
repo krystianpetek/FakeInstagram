@@ -1,4 +1,4 @@
-import IPostRequest from "../IPostRequest";
+import IPostRequest from "../Request/IPostRequest";
 import API from "./../api";
 const ApiUrl = "posts";
 
@@ -57,10 +57,8 @@ const PostService = {
   CreatePostComment,
   GetPostsFromUser,
   CreatePostByUser,
-
   GetCommentsForPost,
   CreateCommentToPost,
-
   CreatePost,
   UpdateOrCreatePost,
   UpdatePost,

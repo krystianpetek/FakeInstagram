@@ -1,11 +1,11 @@
 import { FunctionComponent, useState } from "react";
-import IAlbumResponse from "../../../API/IAlbumResponse";
-import IPhotoResponse from "../../../API/IPhotoResponse";
-import AlbumService from "../../../API/services/AlbumService";
+import "./SearchAlbums.scss";
 import { isNumber } from "../../../Helpers/isNumber";
 import AlbumInfo from "../../AlbumInfo/AlbumInfo";
 import SearchInput from "../../Shared/SearchInput/SearchInput";
-import "./SearchAlbums.scss";
+import IAlbumResponse from "../../../API/Response/IAlbumResponse";
+import IPhotoResponse from "../../../API/Response/IPhotoResponse";
+import AlbumService from "../../../API/services/AlbumService";
 
 interface SearchAlbumsProps { }
 const SearchAlbums: FunctionComponent<SearchAlbumsProps> = () => {

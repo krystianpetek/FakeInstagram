@@ -56,13 +56,10 @@ const UserService = {
   UpdateOrCreateUser,
   UpdateUser,
   DeleteUser,
-
   GetUserAlbums,
   CreateUserAlbum,
-
   GetUserPosts,
   CreateUserPost,
-
   GetUserTodos,
   CreateUserTodo,
 };

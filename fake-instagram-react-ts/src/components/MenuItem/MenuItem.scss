@@ -15,7 +15,7 @@
         visibility: hidden;
     }
 
-    .MenuItem:hover>&__Bottom {
+    &:hover>&__Bottom {
         visibility: visible;
     }
 }

@@ -52,6 +52,6 @@
 
     &__DeleteSign {
         font-size: 1.3em;
-        color: #e666cc;
+        color: variables.$deleteSignColor
     }
 }

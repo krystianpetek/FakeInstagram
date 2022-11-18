@@ -1,10 +1,10 @@
 import { FunctionComponent, useState } from "react";
+import "./Tabs.scss";
 import TabContent from "../TabContent/TabContent";
 import TabItem from "../TabItem/TabItem";
 import SearchAlbums from "./SearchAlbums/SearchAlbums";
 import SearchPhotos from "./SearchPhotos/SearchPhotos";
 import SearchUsers from "./SearchUsers/SearchUsers";
-import "./Tabs.scss";
 
 interface TabsProps { }
 const Tabs: FunctionComponent<TabsProps> = () => {

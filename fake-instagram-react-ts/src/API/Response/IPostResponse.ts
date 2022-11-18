@@ -1,4 +1,4 @@
-export interface IPostResponse {
+interface IPostResponse {
   body: string;
   id: number;
   title: string;

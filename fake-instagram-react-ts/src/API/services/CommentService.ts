@@ -1,4 +1,4 @@
-import ICommentRequest from "../ICommentRequest";
+import ICommentRequest from "../Request/ICommentRequest";
 import API from "./../api";
 const ApiUrl = "comments";
 
@@ -37,10 +37,8 @@ const DeleteComment = (commentId: number) => {
 const CommentService = {
   GetComments,
   GetComment,
-
   GetCommentsForPost,
   CreateCommentForPost,
-
   CreateComment,
   UpdateOrCreateComment,
   UpdateComment,

@@ -4,7 +4,6 @@ import "./MenuItem.scss";
 interface MenuItemProps {
     content: string
 }
-
 const MenuItem: FunctionComponent<MenuItemProps> = (props) => {
     return (
         <div className="MenuItem">

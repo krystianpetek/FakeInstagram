@@ -4,7 +4,6 @@ import "./TitleHeader.scss";
 interface TitleHeaderProps {
     title: string
 }
-
 const TitleHeader: FunctionComponent<TitleHeaderProps> = (props) => {
     return (
         <h1 className="TitleHeader">{props.title}</h1>

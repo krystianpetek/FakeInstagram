@@ -1,6 +1,6 @@
-import "./App.scss"
-import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import "./App.scss"
 import Layout from '../Layout/Layout';
 import { LoginContextProvider } from "../../contexts/LoginContext/LoginContextProvider";
 import { UserContextProvider } from "../../contexts/UserContext/UserContextProvider";

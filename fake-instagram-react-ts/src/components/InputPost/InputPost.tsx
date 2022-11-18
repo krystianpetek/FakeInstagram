@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
-import IPostRequest from "../../API/IPostRequest";
-import Button from "../Shared/Button/Button";
 import "./InputPost.scss";
-type InputType = "text" | "password";
+import Button from "../Shared/Button/Button";
+import IPostRequest from "../../API/Request/IPostRequest";
 
+type InputType = "text" | "password";
 interface InputPostProps {
     name: string;
     type: InputType;
@@ -11,21 +11,22 @@ interface InputPostProps {
     placeholder?: string;
     newPost: IPostRequest,
     setNewPost: any,
-    handleOnChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    handleOnChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     handleSubmitForm: (event: React.FormEvent<HTMLFormElement>) => void;
 }
-
 const InputPost: FunctionComponent<InputPostProps> = (props) => {
     const { name, type, placeholder, newPost } = props;
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const newValue = {
-            ...newPost
+        const newValue = { ...newPost }
+        const currentTarget = event.currentTarget;
+
+        if (currentTarget.id === "inputTitle") {
+            newValue.title = currentTarget.value;
         }
-        const currentValue = event.currentTarget.value;
-        (event.currentTarget.id === "inputTitle") ? newValue.title = currentValue : newValue.body = currentValue;
+        else { newValue.body = currentTarget.value; }
+
         props.setNewPost(newValue);
-        console.log(newValue);
     }
     return (
 

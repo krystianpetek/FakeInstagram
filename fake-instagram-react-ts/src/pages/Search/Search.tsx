@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
-import Tabs from "../../components/Tabs/Tabs";
 import "./Search.scss";
+import Tabs from "../../components/Tabs/Tabs";
 
 interface SearchProps { }
 const Search: FunctionComponent<SearchProps> = () => {

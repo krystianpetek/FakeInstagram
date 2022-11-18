@@ -1,8 +1,8 @@
 import { FunctionComponent, useContext } from "react";
-import { CgClose } from "react-icons/cg";
-import ICommentResponse from "../../API/ICommentResponse";
-import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import "./PostComment.scss";
+import { CgClose } from "react-icons/cg";
+import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
+import ICommentResponse from "../../API/Response/ICommentResponse";
 
 interface PostCommentProps {
     comment: ICommentResponse;

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { IUserContext, UserContext } from "./UserContext";
 import UserService from "./../../API/services/UserService";
-import IUserResponse from "../../API/IUserResponse";
+import IUserResponse from "../../API/Response/IUserResponse";
 
 interface UserContextProviderProps {
     children: JSX.Element;
 }
-
 export const UserContextProvider = (props: UserContextProviderProps) => {
 
     const [users, setUsers] = useState<Array<IUserResponse>>([]);

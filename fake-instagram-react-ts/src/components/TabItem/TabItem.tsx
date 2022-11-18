@@ -7,9 +7,7 @@ interface TabItemProps {
     activeTab: string,
     setActiveTab: (id: string) => void
 }
-
 const TabItem: FunctionComponent<TabItemProps> = ({ id, title, activeTab, setActiveTab }) => {
-
     const handleClick = () => {
         setActiveTab(id);
     };
@@ -17,8 +15,7 @@ const TabItem: FunctionComponent<TabItemProps> = ({ id, title, activeTab, setAct
     return (
         <li
             className={`TabItem ${activeTab === id ? "active" : ""}`}
-            onClick={handleClick}
-        >
+            onClick={handleClick}>
             {title}
         </li>
     );
