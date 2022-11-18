@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import "./TabItem.scss"
 
 interface TabItemProps {
     id: string,
@@ -15,8 +16,9 @@ const TabItem: FunctionComponent<TabItemProps> = ({ id, title, activeTab, setAct
 
     return (
         <li
+            className={`TabItem ${activeTab === id ? "active" : ""}`}
             onClick={handleClick}
-            className={activeTab === id ? "active" : ""}>
+        >
             {title}
         </li>
     );

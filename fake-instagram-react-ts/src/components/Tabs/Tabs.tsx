@@ -17,20 +17,31 @@ const Tabs: FunctionComponent<TabsProps> = () => {
     return (
         <div className="Tabs">
             <ul className="Tabs__Select">
-                <TabItem title="Search users" id="users" activeTab={activeTab} setActiveTab={handleSelectTab} />
-                <TabItem title="Search photos" id="photos" activeTab={activeTab} setActiveTab={handleSelectTab} />
-                <TabItem title="Search albums" id="albums" activeTab={activeTab} setActiveTab={handleSelectTab} />
+                <TabItem title="Search users"
+                    id="users"
+                    activeTab={activeTab}
+                    setActiveTab={handleSelectTab}
+                />
+                <TabItem title="Search photos"
+                    id="photos"
+                    activeTab={activeTab}
+                    setActiveTab={handleSelectTab} />
+                <TabItem title="Search albums"
+                    id="albums"
+                    activeTab={activeTab}
+                    setActiveTab={handleSelectTab} />
             </ul>
-            <div className="content">
-
-
-                <TabContent id="users" activeTab={activeTab}>
+            <div className="searchCard">
+                <TabContent id="users"
+                    activeTab={activeTab}>
                     <SearchUsers />
                 </TabContent>
-                <TabContent id="photos" activeTab={activeTab}>
+                <TabContent id="photos"
+                    activeTab={activeTab}>
                     <SearchPhotos />
                 </TabContent>
-                <TabContent id="albums" activeTab={activeTab}>
+                <TabContent id="albums"
+                    activeTab={activeTab}>
                     <SearchAlbums />
                 </TabContent>
             </div>

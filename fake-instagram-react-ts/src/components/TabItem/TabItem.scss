@@ -1,0 +1,28 @@
+$tabSize: 2em;
+
+.TabItem {
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.TabItem:first-child {
+    border-bottom-left-radius: $tabSize;
+    border-top-left-radius: $tabSize;
+}
+
+.TabItem:last-child {
+    border-bottom-right-radius: $tabSize;
+    border-top-right-radius: $tabSize;
+}
+
+.TabItem:hover {
+    background: #e666cc55;
+}
+
+.TabItem.active {
+    background: #ac99ea;
+    color: #141414;
+}

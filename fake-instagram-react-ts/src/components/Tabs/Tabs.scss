@@ -3,37 +3,10 @@
 
     &__Select {
         width: 60%;
-        margin: 0 auto 1.5em;
+        margin: 0px auto 1.5em;
         display: flex;
         align-items: center;
         border: 1px solid #ac99ea;
-        border-radius: 2em;
-    }
-
-    &__Select li {
-        width: 30%;
-        padding: 1em;
-        text-align: center;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-
-    &__Select li:first-child {
-        border-bottom-left-radius: 2rem;
-        border-top-left-radius: 2rem;
-    }
-
-    &__Select li:last-child {
-        border-bottom-right-radius: 2rem;
-        border-top-right-radius: 2rem;
-    }
-
-    &__Select li:hover {
-        background: #e666cc55;
-    }
-
-    &__Select li.active {
-        background: #ac99ea;
-        color: #141414;
+        border-radius: 3em;
     }
 }

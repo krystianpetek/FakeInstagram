@@ -1,0 +1,15 @@
+@use "../../../variables.scss" as variables;
+
+input {
+    min-width: 350px;
+    font-size: 1.3em;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+    background-color: #15151566;
+    border: 0.5px solid variables.$gray;
+    color: #fff;
+    border-radius: 6px;
+}
