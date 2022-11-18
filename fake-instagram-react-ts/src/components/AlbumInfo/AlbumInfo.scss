@@ -1,0 +1,36 @@
+.AlbumInfo {
+    display: flex;
+    flex-direction: column;
+
+    >* {
+        display: flex;
+        flex-direction: row;
+        padding: 3px;
+
+        >* {
+            padding: 3px 10px;
+
+            >* {
+                padding: 3px;
+            }
+        }
+    }
+
+    .photoImage {
+        width: 400px;
+        height: 400px;
+    }
+
+    .photos {
+        display: flex;
+        flex-direction: column;
+
+        hr {
+            width: 95%;
+            border: 0px;
+            height: 0.3px;
+            background-color: #ffF6;
+            padding: 0;
+        }
+    }
+}
