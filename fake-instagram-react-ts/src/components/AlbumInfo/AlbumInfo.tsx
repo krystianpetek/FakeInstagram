@@ -10,7 +10,7 @@ interface AlbumInfoProps {
     albumPhotos: Array<IPhotoResponse> | null,
 }
 const AlbumInfo: FunctionComponent<AlbumInfoProps> = ({ album, albumPhotos }) => {
-    const photos = albumPhotos?.map(photo => (<><hr /><PhotoInfo photo={photo} /></>));
+    const photos = albumPhotos?.map(photo => (<><hr /><PhotoInfo key={photo.id} photo={photo} /></>));
     return (
         <div className="AlbumInfo">
             <div>
