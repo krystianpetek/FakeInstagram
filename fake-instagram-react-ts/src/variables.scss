@@ -50,3 +50,19 @@ $contentWidth: 1160px;
         text-align: center;
         padding: 50px;
 }
+
+@mixin SearchContainer {
+        background-image: $postBackground;
+        border: 1px solid #FFF;
+        border-radius: 1em;
+        margin-top: 30px;
+        padding: 30px;
+
+        &__Info {
+                padding: 20px;
+
+                &__Message {
+                        text-align: center;
+                }
+        }
+}
