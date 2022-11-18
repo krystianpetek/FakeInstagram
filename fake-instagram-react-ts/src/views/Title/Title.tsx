@@ -7,7 +7,6 @@ interface TitleProps { }
 const Title: FunctionComponent<TitleProps> = () => {
     const { email } = useContext<ILoginContext>(LoginContext);
     const myProfile = (email) ? email : "My Profile";
-
     return (
         <div className="Title">
             <Routes>
@@ -17,7 +16,8 @@ const Title: FunctionComponent<TitleProps> = () => {
                 <Route path="/myProfile" element={<TitleHeader title={`${myProfile}`} />}></Route>
                 <Route path="/login" element={<TitleHeader title="Login" />}></Route>
             </Routes>
-        </div>);
+        </div>
+    );
 }
 
 export default Title;

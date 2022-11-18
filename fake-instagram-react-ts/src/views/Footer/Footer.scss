@@ -4,4 +4,18 @@
     @include variables.PositionToAllBaseView;
     justify-content: center;
     height: 50px;
+
+    a {
+        color: white;
+        margin: 0 15px;
+        outline: none;
+        scale: 130%;
+    }
+
+    .line {
+        margin: 0 20px;
+        height: 30px;
+        width: 1px;
+        background-color: white;
+    }
 }

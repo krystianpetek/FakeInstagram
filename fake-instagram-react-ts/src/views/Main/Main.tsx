@@ -10,7 +10,6 @@ import Logout from "../../pages/Logout/Logout";
 
 interface MainProps { }
 const Main: FunctionComponent<MainProps> = () => {
-
     return (
         <main className="Main">
             <Routes>
@@ -21,8 +20,8 @@ const Main: FunctionComponent<MainProps> = () => {
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/logout" element={<Logout />}></Route>
             </Routes>
-
-        </main>);
+        </main>
+    );
 }
 
 export default Main;
