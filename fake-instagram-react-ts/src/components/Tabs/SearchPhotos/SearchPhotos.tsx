@@ -2,13 +2,15 @@ import { FunctionComponent, useState } from "react";
 import IPhotoResponse from "../../../API/IPhotoResponse";
 import PhotoService from "../../../API/services/PhotoService";
 import { isNumber } from "../../../Helpers/isNumber";
+import PhotoInfo from "../../PhotoInfo/PhotoInfo";
+import SearchInput from "../../Shared/SearchInput/SearchInput";
 import "./SearchPhotos.scss";
 
 interface SearchPhotosProps { }
 const SearchPhotos: FunctionComponent<SearchPhotosProps> = () => {
-    const [message, setMessage] = useState<string>("");
-    const [photoId, setPhotoId] = useState<string>("");
     const [photo, setPhoto] = useState<IPhotoResponse | null>(null);
+    const [photoId, setPhotoId] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
 
     const handleSetPhotoId = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.currentTarget.value.length === 0 || isNumber(event.currentTarget.value))
@@ -17,7 +19,6 @@ const SearchPhotos: FunctionComponent<SearchPhotosProps> = () => {
 
     const fetchData = async (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter" && event.currentTarget.value.length > 0) {
-            setMessage("User not found!");
             await PhotoService.GetPhoto(parseInt(photoId))
                 .then<IPhotoResponse>(response => response.data)
                 .then(photo => {
@@ -27,23 +28,21 @@ const SearchPhotos: FunctionComponent<SearchPhotosProps> = () => {
                     console.log(error);
                     setPhoto(null);
                 })
+            setMessage("Photo not found!");
         }
     };
 
     return (
         <div className="SearchPhotos">
-            <input className="SearchPhotos__Search"
-                id="searchPhoto"
+            <SearchInput
                 name="searchPhoto"
+                id={photoId}
                 placeholder="Please enter photo id and press enter"
-                min="1"
-                type="text"
-                value={photoId!}
-                onChange={handleSetPhotoId}
-                onKeyDown={fetchData} />
+                fetchData={fetchData}
+                handleSetId={handleSetPhotoId}
+            />
             <div className="SearchPhotos__Info">
-                {!photo ? <p className="SearchUsers__Info__Message">{message}</p> : <>
-                    {photo.thumbnailUrl}</>}
+                {!photo ? <p className="SearchPhotos__Info__Message">{message}</p> : <PhotoInfo photo={photo} />}
             </div>
         </div>
     );

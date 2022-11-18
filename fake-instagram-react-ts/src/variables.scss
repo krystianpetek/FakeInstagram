@@ -52,10 +52,13 @@ $contentWidth: 1160px;
 }
 
 @mixin SearchContainer {
+        display: flex;
+        flex-direction: column;
         background-image: $postBackground;
         border: 1px solid #FFF;
         border-radius: 1em;
         margin-top: 30px;
+        min-width: 600px;
         padding: 30px;
 
         &__Info {
