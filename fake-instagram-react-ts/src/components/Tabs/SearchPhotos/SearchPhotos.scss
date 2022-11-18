@@ -1,0 +1,41 @@
+@use "../../../variables.scss" as variables;
+
+.SearchUsers {
+    background-image: variables.$postBackground;
+    border: 1px solid #FFF;
+    border-radius: 1em;
+    margin-top: 30px;
+    padding: 30px;
+
+    &__Search {
+        min-width: 350px;
+        font-size: 1.3em;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 10px;
+        background-color: #15151566;
+        border: 0.5px solid variables.$gray;
+        color: #fff;
+        border-radius: 6px;
+    }
+
+    &__Info {
+        padding: 20px;
+
+        &__Message {
+            text-align: center;
+        }
+
+        &__Name {}
+
+        &__Username {}
+
+        &__Email {}
+
+        &__Address {}
+    }
+
+
+}
