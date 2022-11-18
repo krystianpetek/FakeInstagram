@@ -30,11 +30,19 @@ const Posts: FunctionComponent<PostsProps> = () => {
         });
         setNewPost({ body: "", title: "", userId: 0 })
     }
-
+    const myPosts = posts.map(post => {
+        const postComments = comments.filter(comment => comment.postId === post.id);
+        return (
+            <Post
+                key={post.id}
+                post={post}
+                comments={postComments}
+            ></Post>
+        )
+    });
     return (
         <div className="Posts">
-            {
-                email && isUserLogged &&
+            {email && isUserLogged &&
                 <div className="Posts__AddNew">
                     <p className="Posts__AddNew__Title">Add new post</p>
                     <InputPost name="newPost"
@@ -43,21 +51,8 @@ const Posts: FunctionComponent<PostsProps> = () => {
                         setNewPost={setNewPost}
                         placeholder="Add new post here!"
                         handleSubmitForm={handleSubmitForm} />
-                </div>
-            }
-
-            {
-                posts.map(post => {
-                    const postComments = comments.filter(comment => comment.postId === post.id);
-                    return (
-                        <Post
-                            key={post.id}
-                            post={post}
-                            comments={postComments}
-                        ></Post>
-                    )
-                })
-            }
+                </div>}
+            {myPosts}
         </div >
     );
 }

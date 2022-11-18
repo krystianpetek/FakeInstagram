@@ -1,11 +1,22 @@
 @use "./../../variables.scss" as variables;
 
 .MyProfile {
-    .MyProfile_Info {
-        font-size: 1.2em;
+    span {
+        color: variables.$submitFormButtonColor;
+    }
 
-        span {
-            color: variables.$submitFormButtonColor;
+    &__Section {
+        margin-top: 50px;
+        color: #fffB;
+
+        &:first-child {
+            margin-top: 0px;
+        }
+
+        &__Title {
+            font-size: 1.5em;
+            color: #ffff;
+            font-weight: 600;
         }
     }
 }
