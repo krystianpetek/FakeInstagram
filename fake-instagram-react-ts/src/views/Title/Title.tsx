@@ -12,7 +12,7 @@ const Title: FunctionComponent<TitleProps> = () => {
     return (
         <div className="Title">
             <Routes>
-                <Route path="/" element={<TitleHeader title="Home" />}></Route>
+                <Route index path="/" element={<TitleHeader title="Home" />}></Route>
                 <Route path="/posts" element={<TitleHeader title="Posts" />}></Route>
                 <Route path="/search" element={<TitleHeader title="Search" />}></Route>
                 <Route path="/myProfile" element={<TitleHeader title={`${myProfile}`} />}></Route>
