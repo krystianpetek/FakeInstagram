@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import "./SearchAlbums.scss";
-import { isNumber } from "../../../Helpers/isNumber";
+import { isNumber } from "../../../helpers/isNumber";
 import AlbumInfo from "../../AlbumInfo/AlbumInfo";
 import SearchInput from "../../Shared/SearchInput/SearchInput";
 import IAlbumResponse from "../../../API/Response/IAlbumResponse";

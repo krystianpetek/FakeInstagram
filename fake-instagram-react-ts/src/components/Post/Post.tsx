@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext } from "react";
 import "./Post.scss";
 import { CgClose } from "react-icons/cg";
-import { randomColor } from "../../Helpers/randomColor";
+import { randomColor } from "../../helpers/randomColor";
 import PostComment from "../PostComments/PostComment";
 import InputPostComment from "../InputPostComment/InputPostComment";
 import { LoginContext, ILoginContext } from "../../contexts/LoginContext/LoginContext";

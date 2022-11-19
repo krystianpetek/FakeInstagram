@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import "./SearchPhotos.scss";
-import { isNumber } from "../../../Helpers/isNumber";
+import { isNumber } from "../../../helpers/isNumber";
 import SearchInput from "../../Shared/SearchInput/SearchInput";
 import PhotoInfo from "../../PhotoInfo/PhotoInfo";
 import IPhotoResponse from "../../../API/Response/IPhotoResponse";

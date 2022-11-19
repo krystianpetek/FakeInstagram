@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import "./SearchUsers.scss";
-import { isNumber } from "../../../Helpers/isNumber";
+import { isNumber } from "../../../helpers/isNumber";
 import UserInfo from "../../UserInfo/UserInfo";
 import SearchInput from "../../Shared/SearchInput/SearchInput";
 import IUserResponse from "../../../API/Response/IUserResponse";
