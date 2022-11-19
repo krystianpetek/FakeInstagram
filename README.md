@@ -56,7 +56,7 @@ To run application are required:
 
 ### Setup / Install
 
-`To run application, in PowerShell use this commands:`
+To run application, in PowerShell use this commands:
 
 ```powershell
 cd .\fake-instagram-react-ts
