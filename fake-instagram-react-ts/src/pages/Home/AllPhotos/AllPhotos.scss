@@ -1,0 +1,17 @@
+@use "./../../../variables.scss" as variables;
+
+.AllPhotos {
+    @include variables.SearchContainer;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo {
+    display: flex;
+    min-width: 700px;
+    flex-direction: column-reverse;
+}
