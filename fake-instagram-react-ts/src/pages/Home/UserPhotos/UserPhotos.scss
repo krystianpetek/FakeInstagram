@@ -1,0 +1,22 @@
+@use "./../../../variables.scss" as variables;
+
+.UserPhotos {
+    @include variables.SearchContainer;
+
+    .searchResult {
+        margin: 20px;
+        font-size: 1.2em;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .photo {
+        display: flex;
+        min-width: 700px;
+        flex-direction: column-reverse;
+    }
+}
