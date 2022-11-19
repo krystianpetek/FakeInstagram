@@ -6,7 +6,7 @@ interface SearchInputProps {
     placeholder: string,
     name: string,
     handleSetId: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    fetchData: (event: React.KeyboardEvent<HTMLInputElement>) => Promise<void>
+    fetchData?: (event: React.KeyboardEvent<HTMLInputElement>) => Promise<void>
 }
 const SearchInput: FunctionComponent<SearchInputProps> = ({ id, handleSetId, fetchData, name, placeholder }) => {
     return (
