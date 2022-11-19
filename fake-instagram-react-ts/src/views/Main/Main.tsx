@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Route, Routes } from "react-router-dom";
+import { baseURL } from "./../../API/baseURL";
 import "./Main.scss"
 import Posts from "../../pages/Posts/Posts";
 import Search from "../../pages/Search/Search";
@@ -13,12 +14,12 @@ const Main: FunctionComponent<MainProps> = () => {
     return (
         <main className="Main">
             <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/posts" element={<Posts />}></Route>
-                <Route path="/search" element={<Search />}></Route>
-                <Route path="/myProfile" element={<MyProfile />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/logout" element={<Logout />}></Route>
+                <Route path={`${baseURL}/`} element={<Home />}></Route>
+                <Route path={`${baseURL}/posts`} element={<Posts />}></Route>
+                <Route path={`${baseURL}/search`} element={<Search />}></Route>
+                <Route path={`${baseURL}/myProfile`} element={<MyProfile />}></Route>
+                <Route path={`${baseURL}/login`} element={<Login />}></Route>
+                <Route path={`${baseURL}/logout`} element={<Logout />}></Route>
             </Routes>
         </main>
     );

@@ -6,6 +6,7 @@ import Input from "../../components/Shared/Input/Input";
 import Button from "../../components/Shared/Button/Button";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
+import { baseURL } from "../../API/baseURL";
 
 interface LoginProps { }
 const Login: FunctionComponent<LoginProps> = () => {
@@ -85,10 +86,9 @@ const Login: FunctionComponent<LoginProps> = () => {
             valid: true
         })
     }, [])
-
     return (
         <div className="Login">
-            {(isUserLogged) ? <Navigate to="/"></Navigate> : ""}
+            {(isUserLogged) ? <Navigate to={`${baseURL}/`}></Navigate> : ""}
             <form className="Login__Form" onSubmit={handleLogin} noValidate>
                 <Input
                     key="Login__UsernameInput"

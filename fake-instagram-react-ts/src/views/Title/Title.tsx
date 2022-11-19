@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useContext } from "react";
 import { Route, Routes } from "react-router-dom";
+import { baseURL } from "../../API/baseURL";
 import TitleHeader from "../../components/TitleHeader/TitleHeader";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 
@@ -10,11 +11,11 @@ const Title: FunctionComponent<TitleProps> = () => {
     return (
         <div className="Title">
             <Routes>
-                <Route index path="/" element={<TitleHeader title="Home" />}></Route>
-                <Route path="/posts" element={<TitleHeader title="Posts" />}></Route>
-                <Route path="/search" element={<TitleHeader title="Search" />}></Route>
-                <Route path="/myProfile" element={<TitleHeader title={`${myProfile}`} />}></Route>
-                <Route path="/login" element={<TitleHeader title="Login" />}></Route>
+                <Route index path={`${baseURL}/`} element={<TitleHeader title="Home" />}></Route>
+                <Route path={`${baseURL}/posts`} element={<TitleHeader title="Posts" />}></Route>
+                <Route path={`${baseURL}/search`} element={<TitleHeader title="Search" />}></Route>
+                <Route path={`${baseURL}/myProfile`} element={<TitleHeader title={`${myProfile}`} />}></Route>
+                <Route path={`${baseURL}/login`} element={<TitleHeader title="Login" />}></Route>
             </Routes>
         </div>
     );

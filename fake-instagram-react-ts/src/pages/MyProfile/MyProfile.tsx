@@ -11,6 +11,8 @@ import IPhotoResponse from "../../API/Response/IPhotoResponse";
 import IUserResponse from "../../API/Response/IUserResponse";
 import UserService from "../../API/services/UserService";
 import AlbumService from "../../API/services/AlbumService";
+import AlbumInfo from "../../components/AlbumInfo/AlbumInfo";
+import { baseURL } from "../../API/baseURL";
 
 
 interface MyProfileProps { }
@@ -37,14 +39,14 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
     const mappedPhotos = MyPhotos?.map(post => (<li key={post.id}>PhotoID: {post.id}, AlbumId: {post.albumId} <img src={post.thumbnailUrl} alt="thumbnailPhoto" /></li>))
 
     const [MyAlbums, setMyAlbums] = useState<IAlbumResponse[]>();
-    const mappedAlbums = MyAlbums?.map(post => (
+    const mappedAlbums = MyAlbums?.map(album => (
         <>
-            <li key={post.id}>
-                <button onClick={() => getMyPhotosFromAlbum(post.id)}>
-                </button>
-                {post.title}
-
-            </li>
+            <AlbumInfo key={album.id}
+                album={album}
+                albumPhotos={MyPhotos?.filter(photo => photo.albumId === album.id)!} />
+            <button onClick={() => getMyPhotosFromAlbum(album.id)}>
+            </button>
+            {album.title}
         </>))
 
     const getMyAlbums = () => UserService.GetUserAlbums(myProfile!.id)
@@ -57,7 +59,6 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         .then(response => setMyAlbums(response))
         .catch(error => {
             console.log(error);
-            // window.location.href = '/errorPage';
         });
 
     const getMyPhotosFromAlbum = (albumId: number) => AlbumService.GetPhotosFromAlbum(albumId)
@@ -70,16 +71,14 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
         .then(response => setMyPhotos(response))
         .catch(error => {
             console.log(error);
-            // window.location.href = '/errorPage';
         });
 
     useEffect(() => {
         getMyAlbums();
     }, [])
-
     return (
         <>
-            {(!isUserLogged) ? <Navigate replace to="/"></Navigate> : ""}
+            {(!isUserLogged) ? <Navigate replace to={`${baseURL}/`}></Navigate> : ""}
             <div className="MyProfile">
                 <div className="MyProfile__Section">
                     <p className="MyProfile__Section__Title">About me!</p>
@@ -96,7 +95,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
                 <div className="MyProfile__Section">
                     <p className="MyProfile__Section__Title">My photos</p>
                     <hr />
-                    <div>{mappedPhotos}</div>
+                    <div>{mappedAlbums}</div>
                 </div>
             </div>
         </>
