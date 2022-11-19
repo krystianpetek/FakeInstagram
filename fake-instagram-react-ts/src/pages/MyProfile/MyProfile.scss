@@ -1,6 +1,8 @@
 @use "./../../variables.scss" as variables;
 
 .MyProfile {
+    width: 50%;
+
     span {
         color: variables.$submitFormButtonColor;
     }
@@ -18,5 +20,13 @@
             color: #ffff;
             font-weight: 600;
         }
+    }
+}
+
+.albums {
+    padding: 20px;
+
+    >div {
+        padding: 5px;
     }
 }

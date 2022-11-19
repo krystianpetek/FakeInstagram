@@ -3,6 +3,8 @@ import "./MyProfile.scss";
 import { Navigate } from "react-router-dom";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import Post from "../../components/Post/Post";
+import Button from "../../components/Shared/Button/Button";
+import PhotoInfo from "../../components/PhotoInfo/PhotoInfo";
 import { ILoginContext, LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
 import { IPostContext, PostContext } from "../../contexts/PostContext/PostContext";
@@ -11,8 +13,8 @@ import IPhotoResponse from "../../API/Response/IPhotoResponse";
 import IUserResponse from "../../API/Response/IUserResponse";
 import UserService from "../../API/services/UserService";
 import AlbumService from "../../API/services/AlbumService";
-import AlbumInfo from "../../components/AlbumInfo/AlbumInfo";
 import { baseURL } from "../../API/baseURL";
+
 
 
 interface MyProfileProps { }
@@ -21,6 +23,8 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
     const { posts, comments } = useContext<IPostContext>(PostContext);
     const { users } = useContext<IUserContext>(UserContext);
     const myProfile: (IUserResponse | null) = users.find(user => user.email === email && user.username === username) ?? null;
+    const [photos, setPhotos] = useState<IPhotoResponse[]>();
+    const [albums, setAlbums] = useState<IAlbumResponse[]>();
 
     const myPosts = posts
         .filter(post => post.userId === myProfile?.id)
@@ -34,20 +38,26 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
                 ></Post>
             )
         });
+    const myAlbums = albums?.map(album => (
+        <div className="albums">
+            <div>
+                <p>ID: {album?.id}</p>
+            </div>
+            <div>
+                <p>Title:{album?.title} </p>
+            </div>
+            <div>
+                <Button key={album.id
+                } onClick={() => getMyPhotosFromAlbum(album.id)}>{`Show album ${album.id}`}</Button>
+            </div>
+            <div className="photos">
+                {photos?.filter(photo => photo.albumId === album.id)
+                    .map(photo =>
+                        <PhotoInfo key={photo.id} photo={photo} />)}
+            </div>
+        </div>
 
-    const [MyPhotos, setMyPhotos] = useState<IPhotoResponse[]>();
-    const mappedPhotos = MyPhotos?.map(post => (<li key={post.id}>PhotoID: {post.id}, AlbumId: {post.albumId} <img src={post.thumbnailUrl} alt="thumbnailPhoto" /></li>))
-
-    const [MyAlbums, setMyAlbums] = useState<IAlbumResponse[]>();
-    const mappedAlbums = MyAlbums?.map(album => (
-        <>
-            <AlbumInfo key={album.id}
-                album={album}
-                albumPhotos={MyPhotos?.filter(photo => photo.albumId === album.id)!} />
-            <button onClick={() => getMyPhotosFromAlbum(album.id)}>
-            </button>
-            {album.title}
-        </>))
+    ))
 
     const getMyAlbums = () => UserService.GetUserAlbums(myProfile!.id)
         .then<IAlbumResponse[]>(response => {
@@ -56,7 +66,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
             }
             throw new Error("While fetching posts something went wrong!");
         })
-        .then(response => setMyAlbums(response))
+        .then(response => setAlbums(response))
         .catch(error => {
             console.log(error);
         });
@@ -68,7 +78,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
             }
             throw new Error("While fetching posts something went wrong!");
         })
-        .then(response => setMyPhotos(response))
+        .then(response => setPhotos(response))
         .catch(error => {
             console.log(error);
         });
@@ -76,6 +86,7 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
     useEffect(() => {
         getMyAlbums();
     }, [])
+
     return (
         <>
             {(!isUserLogged) ? <Navigate replace to={`${baseURL}/`}></Navigate> : ""}
@@ -93,9 +104,9 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
                 </div>
 
                 <div className="MyProfile__Section">
-                    <p className="MyProfile__Section__Title">My photos</p>
+                    <p className="MyProfile__Section__Title">My albums!</p>
                     <hr />
-                    <div>{mappedAlbums}</div>
+                    <div className="MyProfile__Section__Albums">{myAlbums}</div>
                 </div>
             </div>
         </>
