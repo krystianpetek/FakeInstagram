@@ -15,8 +15,6 @@ import UserService from "../../API/services/UserService";
 import AlbumService from "../../API/services/AlbumService";
 import { baseURL } from "../../API/baseURL";
 
-
-
 interface MyProfileProps { }
 const MyProfile: FunctionComponent<MyProfileProps> = () => {
     const { isUserLogged, email, username } = useContext<ILoginContext>(LoginContext)

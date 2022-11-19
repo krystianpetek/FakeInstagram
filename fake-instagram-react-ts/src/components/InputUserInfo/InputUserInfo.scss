@@ -1,0 +1,12 @@
+@use "../../variables.scss" as variables;
+
+.InputUserInfo {
+    &__Properties {
+        min-width: 250px;
+        padding: 4px;
+        background-color: #15151566;
+        border: 0.5px solid variables.$gray;
+        color: #fff;
+        border-radius: 3px;
+    }
+}
