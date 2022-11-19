@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import IPhotoResponse from "../../../API/Response/IPhotoResponse";
-import PhotoInfo from "../../../components/PhotoInfo/PhotoInfo";
-import Button from "../../../components/Shared/Button/Button";
+import IPhotoResponse from "../../API/Response/IPhotoResponse";
+import PhotoInfo from "../PhotoInfo/PhotoInfo";
+import Button from "../Shared/Button/Button";
 import "./AllPhotos.scss";
 
 interface AllPhotosProps {

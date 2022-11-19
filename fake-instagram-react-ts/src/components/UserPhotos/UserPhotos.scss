@@ -1,4 +1,4 @@
-@use "./../../../variables.scss" as variables;
+@use "./../../variables.scss" as variables;
 
 .UserPhotos {
     @include variables.SearchContainer;
@@ -17,6 +17,7 @@
     .photo {
         display: flex;
         min-width: 700px;
+        align-items: center;
         flex-direction: column-reverse;
     }
 }

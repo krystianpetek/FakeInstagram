@@ -3,9 +3,9 @@ import IPhotoResponse from "../../API/Response/IPhotoResponse";
 import PhotoService from "../../API/services/PhotoService";
 import TabContent from "../../components/TabContent/TabContent";
 import TabItem from "../../components/TabItem/TabItem";
-import AllPhotos from "./AllPhotos/AllPhotos";
+import AllPhotos from "../../components/AllPhotos/AllPhotos";
 import "./Home.scss";
-import UserPhotos from "./UserPhotos/UserPhotos";
+import UserPhotos from "../../components/UserPhotos/UserPhotos";
 
 interface HomeProps { }
 const Home: FunctionComponent<HomeProps> = () => {

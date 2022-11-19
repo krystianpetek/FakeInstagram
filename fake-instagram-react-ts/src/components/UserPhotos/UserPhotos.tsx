@@ -1,12 +1,12 @@
 import { FunctionComponent, useContext, useEffect, useState } from "react";
 import "./UserPhotos.scss";
-import PhotoInfo from "../../../components/PhotoInfo/PhotoInfo";
-import Button from "../../../components/Shared/Button/Button";
-import SearchInput from "../../../components/Shared/SearchInput/SearchInput";
-import { IUserContext, UserContext } from "../../../contexts/UserContext/UserContext";
-import IPhotoResponse from "../../../API/Response/IPhotoResponse";
-import IAlbumResponse from "../../../API/Response/IAlbumResponse";
-import AlbumService from "../../../API/services/AlbumService";
+import PhotoInfo from "../PhotoInfo/PhotoInfo";
+import Button from "../Shared/Button/Button";
+import SearchInput from "../Shared/SearchInput/SearchInput";
+import { IUserContext, UserContext } from "../../contexts/UserContext/UserContext";
+import IPhotoResponse from "../../API/Response/IPhotoResponse";
+import IAlbumResponse from "../../API/Response/IAlbumResponse";
+import AlbumService from "../../API/services/AlbumService";
 
 interface UserPhotosProps {
     photos: Array<IPhotoResponse> | null,
