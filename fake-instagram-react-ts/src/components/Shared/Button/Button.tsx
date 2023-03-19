@@ -1,4 +1,4 @@
-import { Dispatch, FunctionComponent, SetStateAction, useState } from "react";
+import { FunctionComponent} from "react";
 import "./Button.scss";
 
 interface ButtonProps {
@@ -6,14 +6,13 @@ interface ButtonProps {
     type?: "submit" | "reset" | "button"
     onClick?: () => void;
     state?: boolean
-    setState?: Dispatch<SetStateAction<boolean>>
 }
 
 const Button: FunctionComponent<ButtonProps> = (props) => {
 
     const handleOnClick = () => {
         props.onClick!();
-        props.setState!(prevValue => !prevValue);
+        // props.setState!(prevValue => !prevValue);
     }
     return (
         <div className="Button">
