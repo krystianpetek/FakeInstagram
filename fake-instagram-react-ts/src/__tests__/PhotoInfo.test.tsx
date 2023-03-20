@@ -1,7 +1,7 @@
 import React from "react";
 import { screen, render } from '@testing-library/react';
-import PhotoInfo from "./PhotoInfo";
-import IPhotoResponse from "../../API/Response/IPhotoResponse";
+import PhotoInfo from "../components/PhotoInfo/PhotoInfo";
+import IPhotoResponse from "../API/Response/IPhotoResponse";
 
 let mockPhoto: IPhotoResponse = {
     albumId: 1,
@@ -12,6 +12,7 @@ let mockPhoto: IPhotoResponse = {
 };
 
 describe('should render PhotoInfo component', () => {
+
     it('information about photo exists on screen', () => {
         render(<PhotoInfo photo={mockPhoto}></PhotoInfo>);
         const renderThumbnail: HTMLDivElement = screen.getByText(mockPhoto.thumbnailUrl);
@@ -29,5 +30,6 @@ describe('should render PhotoInfo component', () => {
         render(<PhotoInfo photo={mockPhoto}></PhotoInfo>);
         const renderImage: HTMLImageElement = screen.getByAltText(mockPhoto.title);
         expect(renderImage.src).toEqual(mockPhoto.url);
+        expect(renderImage).toBeInTheDocument();
     })
 });

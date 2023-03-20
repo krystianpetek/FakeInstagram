@@ -99,6 +99,7 @@
   "include": [
     "src",
     "jest.config.ts",
-    "setupTests.ts"
+    "jest.setup.ts",
+    "src/setupTests.ts"
   ]
 }

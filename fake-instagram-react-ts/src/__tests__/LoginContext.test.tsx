@@ -1,14 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import React, { FC, useEffect } from 'react';
-import { ILoginContext, LoginContext } from "./LoginContext";
-import { LoginContextProvider } from "./LoginContextProvider";
+import { ILoginContext, LoginContext } from "../contexts/LoginContext/LoginContext";
+import { LoginContextProvider } from "../contexts/LoginContext/LoginContextProvider";
 import { useContext } from "react";
 
 
 describe('LoginContextProvider', () => {
 
   const TestComponent: FC<{ name?: string, email?: string }> = (props) => {
-
     const { email, setEmail, username, setUsername } = useContext<ILoginContext>(LoginContext);
 
     useEffect(() => {
