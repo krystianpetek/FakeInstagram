@@ -6,7 +6,7 @@ import IPostResponse from "../../API/Response/IPostResponse";
 
 export interface IPostContext {
     posts: Array<IPostResponse>,
-    addPost: (post: IPostRequest) => void,
+    addPost: (post: IPostRequest) => Promise<void>,
     removePost: (postId: number) => void,
     comments: Array<ICommentResponse>
     addComment: (comment: ICommentRequest) => void,
@@ -15,7 +15,7 @@ export interface IPostContext {
 
 const defaultContextState: IPostContext = {
     posts: [],
-    addPost: () => { },
+    addPost: () => { return new Promise<void>(() => { }) },
     removePost: () => { },
     comments: [],
     addComment: () => { },

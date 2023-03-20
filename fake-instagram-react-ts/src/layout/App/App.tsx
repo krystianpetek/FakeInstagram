@@ -5,12 +5,14 @@ import Layout from '../Layout/Layout';
 import { LoginContextProvider } from "../../contexts/LoginContext/LoginContextProvider";
 import { UserContextProvider } from "../../contexts/UserContext/UserContextProvider";
 import { PostContextProvider } from "../../contexts/PostContext/PostContextProvider";
+import { PostService } from "../../API/services/PostService";
+import { CommentService } from "../../API/services/CommentService";
 
 const App: React.FC = () => {
   return (
     <LoginContextProvider>
       <UserContextProvider>
-        <PostContextProvider>
+        <PostContextProvider commentService={CommentService} postService={PostService}>
           <div className="App">
             <BrowserRouter>
               <Layout />

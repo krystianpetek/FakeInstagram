@@ -25,7 +25,6 @@ describe('LoginContextProvider', () => {
   it('user isn\'t logged', () => {
     render(<LoginContextProvider>
       <TestComponent />
-      {/* <TestComponent name="krystian" email="petek@wsei.tempmail.pl" /> */}
     </LoginContextProvider>);
 
     const renderUser = screen.getByTestId('username');
