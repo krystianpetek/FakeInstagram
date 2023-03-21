@@ -1,3 +1,4 @@
+import IAlbumResponse from "../Response/IAlbumResponse";
 import IUserResponse from "../Response/IUserResponse";
 import API from "./../api";
 const ApiUrl = "users";
@@ -14,7 +15,14 @@ const GetUsers = () => {
 };
 
 const GetUser = (userId: number) => {
-  return API.get(`${ApiUrl}/${userId}`);
+  return API.get(`${ApiUrl}/${userId}`)
+    .then<IUserResponse>((response) => response.data)
+    .then((posts) => {
+      return posts;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
 };
 
 const CreateUser = () => {
@@ -34,7 +42,19 @@ const DeleteUser = (userId: number) => {
 };
 
 const GetUserAlbums = (userId: number) => {
-  return API.get(`${ApiUrl}/${userId}/albums`);
+  return API.get(`${ApiUrl}/${userId}/albums`)
+    .then<IAlbumResponse[]>((response) => {
+      if (response.status === 200) {
+        return response.data;
+      }
+      throw new Error("While fetching posts something went wrong!");
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
 };
 
 const CreateUserAlbum = (userId: number) => {
@@ -74,4 +94,6 @@ export const UserService = {
 
 export interface IUserService {
   GetUsers: () => Promise<IUserResponse[]>;
+  GetUser: (userId: number) => Promise<IUserResponse>;
+  GetUserAlbums: (userId: number) => Promise<IAlbumResponse[]>;
 }

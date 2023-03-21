@@ -8,6 +8,7 @@ import Home from "../../pages/Home/Home";
 import MyProfile from "../../pages/MyProfile/MyProfile";
 import Login from "../../pages/Login/Login";
 import Logout from "../../pages/Logout/Logout";
+import { UserService } from "../../API/services/UserService";
 
 interface MainProps { }
 const Main: FunctionComponent<MainProps> = () => {
@@ -17,7 +18,7 @@ const Main: FunctionComponent<MainProps> = () => {
                 <Route path={`${baseURL}/`} element={<Home />}></Route>
                 <Route path={`${baseURL}/posts`} element={<Posts />}></Route>
                 <Route path={`${baseURL}/search`} element={<Search />}></Route>
-                <Route path={`${baseURL}/myProfile`} element={<MyProfile />}></Route>
+                <Route path={`${baseURL}/myProfile`} element={<MyProfile userService={UserService} />}></Route>
                 <Route path={`${baseURL}/login`} element={<Login />}></Route>
                 <Route path={`${baseURL}/logout`} element={<Logout />}></Route>
             </Routes>

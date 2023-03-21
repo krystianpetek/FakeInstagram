@@ -4,10 +4,12 @@ import { isNumber } from "../../../helpers/isNumber";
 import UserInfo from "../../UserInfo/UserInfo";
 import SearchInput from "../../Shared/SearchInput/SearchInput";
 import IUserResponse from "../../../API/Response/IUserResponse";
-import UserService from "../../../API/services/UserService";
+import { IUserService } from "../../../API/services/UserService";
 
-interface SearchUsersProps { }
-const SearchUsers: FunctionComponent<SearchUsersProps> = () => {
+interface SearchUsersProps {
+    userService: IUserService
+}
+const SearchUsers: FunctionComponent<SearchUsersProps> = ({ userService }) => {
     const [user, setUser] = useState<IUserResponse | null>(null)
     const [userId, setUserId] = useState<string>("");
     const [message, setMessage] = useState<string>("");
@@ -19,15 +21,13 @@ const SearchUsers: FunctionComponent<SearchUsersProps> = () => {
 
     const fetchData = async (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter" && event.currentTarget.value.length > 0) {
-            await UserService.GetUser(parseInt(userId))
-                .then<IUserResponse>(response => response.data)
-                .then(posts => {
-                    setUser(posts);
-                })
-                .catch(error => {
-                    console.log(error);
-                    setUser(null);
-                })
+            const response = await userService.GetUser(parseInt(userId))
+            if (response) {
+                setUser(response);
+            }
+            else {
+                setUser(null);
+            }
             setMessage("User not found!");
         }
     }

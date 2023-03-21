@@ -1,8 +1,8 @@
 import { createContext } from "react";
 import ICommentRequest from "../../API/Request/ICommentRequest";
-import IPostRequest from "../../API/Request/IPostRequest";
 import ICommentResponse from "../../API/Response/ICommentResponse";
 import IPostResponse from "../../API/Response/IPostResponse";
+import IPostRequest from "../../API/Request/IPostRequest";
 
 export interface IPostContext {
     posts: Array<IPostResponse>,

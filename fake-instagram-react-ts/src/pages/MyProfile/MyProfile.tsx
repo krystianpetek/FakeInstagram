@@ -11,12 +11,14 @@ import { IPostContext, PostContext } from "../../contexts/PostContext/PostContex
 import IAlbumResponse from "../../API/Response/IAlbumResponse";
 import IPhotoResponse from "../../API/Response/IPhotoResponse";
 import IUserResponse from "../../API/Response/IUserResponse";
-import UserService from "../../API/services/UserService";
+import { IUserService } from "../../API/services/UserService";
 import AlbumService from "../../API/services/AlbumService";
 import { baseURL } from "../../API/baseURL";
 
-interface MyProfileProps { }
-const MyProfile: FunctionComponent<MyProfileProps> = () => {
+interface MyProfileProps {
+    userService: IUserService
+}
+const MyProfile: FunctionComponent<MyProfileProps> = ({ userService }) => {
     const { isUserLogged, email, username } = useContext<ILoginContext>(LoginContext)
     const { posts, comments } = useContext<IPostContext>(PostContext);
     const { users } = useContext<IUserContext>(UserContext);
@@ -57,17 +59,10 @@ const MyProfile: FunctionComponent<MyProfileProps> = () => {
 
     ))
 
-    const getMyAlbums = () => UserService.GetUserAlbums(myProfile!.id)
-        .then<IAlbumResponse[]>(response => {
-            if (response.status === 200) {
-                return response.data;
-            }
-            throw new Error("While fetching posts something went wrong!");
-        })
-        .then(response => setAlbums(response))
-        .catch(error => {
-            console.log(error);
-        });
+    const getMyAlbums = async () => {
+        const albums = await userService.GetUserAlbums(myProfile!.id);
+        setAlbums(albums);
+    }
 
     const getMyPhotosFromAlbum = (albumId: number) => AlbumService.GetPhotosFromAlbum(albumId)
         .then<IPhotoResponse[]>(response => {

@@ -5,6 +5,7 @@ import TabItem from "../TabItem/TabItem";
 import SearchAlbums from "./SearchAlbums/SearchAlbums";
 import SearchPhotos from "./SearchPhotos/SearchPhotos";
 import SearchUsers from "./SearchUsers/SearchUsers";
+import { UserService } from "../../API/services/UserService";
 
 interface TabsProps { }
 const Tabs: FunctionComponent<TabsProps> = () => {
@@ -34,7 +35,7 @@ const Tabs: FunctionComponent<TabsProps> = () => {
             <div className="searchCard">
                 <TabContent id="users"
                     activeTab={activeTab}>
-                    <SearchUsers />
+                    <SearchUsers userService={UserService} />
                 </TabContent>
                 <TabContent id="photos"
                     activeTab={activeTab}>

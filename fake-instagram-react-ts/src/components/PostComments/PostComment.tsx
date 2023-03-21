@@ -16,7 +16,7 @@ const PostComments: FunctionComponent<PostCommentProps> = ({ comment, removeComm
     }
 
     return (
-        <div className="Post__Comment">
+        <div key={comment.id} className="Post__Comment">
             <div className="Post__Comment__Text">
                 <p className="Post__Comment__User">{comment.email}</p>
                 <p>{comment.body}</p>
