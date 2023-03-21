@@ -1,8 +1,16 @@
+import IUserResponse from "../Response/IUserResponse";
 import API from "./../api";
 const ApiUrl = "users";
 
 const GetUsers = () => {
-  return API.get(`${ApiUrl}`);
+  return API.get(`${ApiUrl}`)
+    .then((response) => response.data)
+    .then((users) => {
+      return users;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
 };
 
 const GetUser = (userId: number) => {
@@ -49,7 +57,7 @@ const CreateUserTodo = (userId: number) => {
   return API.post(`${ApiUrl}/${userId}/todos`);
 };
 
-const UserService = {
+export const UserService = {
   GetUsers,
   GetUser,
   CreateUser,
@@ -64,4 +72,6 @@ const UserService = {
   CreateUserTodo,
 };
 
-export default UserService;
+export interface IUserService {
+  GetUsers: () => Promise<IUserResponse[]>;
+}

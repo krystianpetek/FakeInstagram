@@ -9,7 +9,7 @@ import { ICommentService } from "../API/services/CommentService";
 
 describe('PostContextProvider', () => {
     const TestComponent: FC<{ commentsProps?: ICommentResponse[], postsProps?: IPostResponse[] }> = ({ postsProps, commentsProps }) => {
-        const { comments, posts, addComment, addPost, removeComment, removePost } = useContext<IPostContext>(PostContext);
+        const { addComment, addPost } = useContext<IPostContext>(PostContext);
         useEffect(() => {
             if (postsProps?.length) {
                 postsProps.forEach(element => {

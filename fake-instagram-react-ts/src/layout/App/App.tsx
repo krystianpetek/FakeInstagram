@@ -7,11 +7,12 @@ import { UserContextProvider } from "../../contexts/UserContext/UserContextProvi
 import { PostContextProvider } from "../../contexts/PostContext/PostContextProvider";
 import { PostService } from "../../API/services/PostService";
 import { CommentService } from "../../API/services/CommentService";
+import { UserService } from "../../API/services/UserService";
 
 const App: React.FC = () => {
   return (
     <LoginContextProvider>
-      <UserContextProvider>
+      <UserContextProvider userService={UserService}>
         <PostContextProvider commentService={CommentService} postService={PostService}>
           <div className="App">
             <BrowserRouter>
